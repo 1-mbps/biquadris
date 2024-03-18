@@ -1,5 +1,23 @@
 # Biquadris
 
+Try to work on your own branch to avoid merge conflicts.
+
+Steps for pushing to the repo:
+```
+git add [file you want to add]
+```
+Once you're done adding everything, write a commit message
+```
+git commit -m "commit message"
+```
+and then push
+```
+git push origin [branch name]
+```
+If pushing to main, `git push origin main`
+
+Run `git branch [branch_name]` to create a new branch and `git checkout [other branch]` to switch to another branch. Note that you have to push all your changes first before checking out otherwise everything will get lost. I learned this the hard way over co-op
+
 ## Board
 11 columns, 15 rows, with 3 extra before first block so total 18
 
@@ -70,4 +88,6 @@ Then do this recursively on each neighbor.
 If ANY number is out of bounds, the rotation is invalid.
 
 Represent blocks as a class.
+
+(will try to implement this today)
 
