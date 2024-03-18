@@ -80,8 +80,11 @@ When rotating:
 
 Clockwise - from the lower right corner, move
 neighbor to the left -> top
+
 on top -> right
+
 to the right -> below
+
 below -> to the left
 
 Then do this recursively on each neighbor.
