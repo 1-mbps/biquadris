@@ -34,7 +34,7 @@ void Board::notify(std::vector<std::pair<int,int>> &old_coords, std::vector<std:
     }
 }
 
-//move to textdisplay class
+//don't keep this - this is just for testing
 void Board::print() {
     cout << "Level: 1" << endl;
     cout << "Score: 0" << endl;

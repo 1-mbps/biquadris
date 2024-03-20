@@ -12,9 +12,14 @@ class Board {
     public:
         Board();
         bool is_valid(std::pair<int, int>);
+
+        //Mark a Block's coordinates on the grid.
         void add(std::vector<std::pair<int,int>> &coords, char c);
+
+        //Called by a Block whenever the Board needs to be updated.
         void notify(std::vector<std::pair<int,int>> &old_coords, std::vector<std::pair<int,int>> &new_coords, char c);
-        void print();
+        
+        void print(); //will keep for now, only for testing
 };
 
 #endif

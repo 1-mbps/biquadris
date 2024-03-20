@@ -7,7 +7,7 @@ using namespace std;
 Block::Block(char block_type, Board *board): block_type{block_type}, board{board} {
     origin_r = 3; origin_c = 1; //(0,0) on the rotation coordinate plane == (3,1) on the grid
     switch (block_type) {
-        case 'I': //rotation algorithm won't work on I-block
+        case 'I': //rotation algorithm won't work on I-block, so this is hardcoded
             xy_coords = {{0,0}, {1,0}, {2,0}, {3,0}};
             rotations = {
                 {{0,0}, {1,0}, {2,0}, {3,0}},
