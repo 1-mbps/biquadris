@@ -1,0 +1,76 @@
+Board with block:
+
+Level: 1
+Score: 0
+-----------
+           
+           
+           
+TTT        
+ T         
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+-----------
+
+
+Board with block rotated clockwise
+
+Level: 1
+Score: 0
+-----------
+           
+           
+ T         
+TT         
+ T         
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+-----------
+
+
+Board with block rotated counterclockwise to original position
+
+Level: 1
+Score: 0
+-----------
+           
+           
+           
+TTT        
+ T         
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+-----------

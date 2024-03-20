@@ -68,6 +68,12 @@ LLL
 
 There are 18 rows between the two dashed lines.
 
+### Implementation
+
+We have an 18x11 char array `grid`. Each entry in the grid is either a character (S, I, J, whatever else) corresponding to a block or a space.
+
+Note that blocks are not stored anywhere on the grid. Once the player is done editing it (moving left and right or rotating) and has dropped it, its coordinates are marked on the grid and the block object itself goes out of scope, which automatically frees it.
+
 ## Blocks
 Rotation:
 - Clockwise: lower right corner takes place of lower left corner
@@ -75,22 +81,26 @@ Rotation:
 
 ### Rotation algorithm
 
-Idea: store blocks as an adjacency list.
-When rotating:
+Used this for rotation algorithm:
+https://en.wikipedia.org/wiki/Rotation_of_axes_in_two_dimensions
 
-Clockwise - from the lower right corner, move
-neighbor to the left -> top
 
-on top -> right
 
-to the right -> below
+<!-- ### Dropping
 
-below -> to the left
+Store the states of each cell in a dictionary `grid_dict`.
 
-Then do this recursively on each neighbor.
-If ANY number is out of bounds, the rotation is invalid.
+After rotation is confirmed, keep track of coordinates of the block's lower boundary.
 
-Represent blocks as a class.
+Then, iteratively lower the block.
+If every cell in the block's lower boundary is free (according to the dictionary), try to keep going. If not, stop.
+Then update `grid_dict` to show the block's final coordinates as being filled.
 
-(will try to implement this today)
+Also, keep track of how many blocks in each row are full.
+After a block is dropped, add the width of the block in each row.
+if all 11 columns full, clear row:
+-go over every block
+-recursively go over every cell and change coordinates accordingly
+
+or just loop over `grid_dict`, making the state of each cell equal to the state of what's above -->
 
