@@ -72,16 +72,19 @@ There are 18 rows between the two dashed lines.
 
 We have an 18x11 char array `grid`. Each entry in the grid is either a character (S, I, J, whatever else) corresponding to a block or a space.
 
-Note that blocks are not stored anywhere on the grid. Once the player is done editing it (moving left and right or rotating) and has dropped it, its coordinates are marked on the grid and the block object itself goes out of scope, which automatically frees it.
+Blocks are stored as smart pointers in a vector `blocks`. Storing blocks will be useful in addressing this from the PDF
+
+
+>Question: How could you design your system (or modify your existing design) to allow for some generated blocks to disappear from the screen if not cleared before 10 more blocks have fallen? Could the generation of such blocks be easily confined to more advanced levels?
 
 ## Blocks
 Rotation:
 - Clockwise: lower right corner takes place of lower left corner
 - Counterclockwise: top left corner replaces lower left corner
 
-### Rotation algorithm
+### Rotation
 
-Used this for rotation algorithm:
+Used this for rotations:
 https://en.wikipedia.org/wiki/Rotation_of_axes_in_two_dimensions
 
 

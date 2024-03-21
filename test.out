@@ -6,8 +6,8 @@ Score: 0
            
            
            
-TTT        
- T         
+J          
+JJJ        
            
            
            
@@ -22,7 +22,6 @@ TTT
            
            
 -----------
-
 
 Board with block rotated clockwise
 
@@ -31,9 +30,9 @@ Score: 0
 -----------
            
            
- T         
-TT         
- T         
+JJ         
+J          
+J          
            
            
            
@@ -48,7 +47,6 @@ TT
            
            
 -----------
-
 
 Board with block rotated counterclockwise to original position
 
@@ -58,8 +56,8 @@ Score: 0
            
            
            
-TTT        
- T         
+J          
+JJJ        
            
            
            

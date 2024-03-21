@@ -1,3 +1,4 @@
+#include "board.h"
 #include "block.h"
 #include <iostream>
 
@@ -8,14 +9,14 @@ int main() {
 
     cout << "Board with block:" << endl << endl;
     Board board = Board{};
-    Block block = Block{'T', &board}; //works for all blocks
+    board.add('J');
     board.print();
-    block.rotate(true);
+    board.rotate(true);
 
     cout << endl << "Board with block rotated clockwise" << endl << endl;
     board.print();
 
-    block.rotate(false);
+    board.rotate(false);
     cout << endl << "Board with block rotated counterclockwise to original position" << endl << endl;
     board.print();
 

@@ -1,1 +1,1 @@
-board.o: board.cc board.h observer.h
+board.o: board.cc board.h block.h
