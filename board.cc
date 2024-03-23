@@ -55,25 +55,38 @@ bool Board::update_grid(int inc_rotation_state, int inc_r, int inc_c) {
     int origin_r = blocks[num_blocks-1]->get_origin_r();
     int origin_c = blocks[num_blocks-1]->get_origin_c();
     char c = blocks[num_blocks-1]->get_block_type();
-    vector<pair<int,int>> old_coords = blocks[num_blocks-1]->get_coords(0);
+    vector<pair<int,int>> old_coords = blocks[num_blocks-1]->get_coords(0); //These are references - no unnecessary copying
     vector<pair<int,int>> new_coords = blocks[num_blocks-1]->get_coords(inc_rotation_state);
-    
-    // Check if new coordinates are valid
-    for (auto p : new_coords) {
-        int i = p.first+origin_r+inc_r;
-        int j = p.second+origin_c+inc_c;
-        if ((is_valid(i,j) || (in_current_block(old_coords, p))) == false) return false;
-    }
 
-    //If the new coordinates are valid, clear the old coordinates
+    //Clear the old coordinates - O(n)
     for (auto p : old_coords) {
         grid[p.first+origin_r][p.second+origin_c] = ' ';
     }
 
-    //and then mark the new coordinates
+    bool valid = true;
+    
+    // Check if new coordinates are valid - O(n)
     for (auto p : new_coords) {
-        grid[p.first+origin_r+inc_r][p.second+origin_c+inc_c] = c;
+        int i = p.first+origin_r+inc_r;
+        int j = p.second+origin_c+inc_c;
+        if (is_valid(i,j) == false) valid = false;
     }
+
+    if (valid) {
+        // mark the new coordinates - O(n)
+        for (auto p : new_coords) {
+            grid[p.first+origin_r+inc_r][p.second+origin_c+inc_c] = c;
+        }
+    } else {
+        // restore the old coordinates - O(n)
+        for (auto p : old_coords) {
+            grid[p.first+origin_r][p.second+origin_c] = ' ';
+        }
+        return false;
+    }
+
+    //Total running time: O(3n) = O(n)
+
     return true;
 }
 

@@ -80,6 +80,7 @@ void Block::rotate(bool clockwise) {
     }
 }
 
+//Return a reference to avoid unnecessary copying
 std::vector<std::pair<int,int>>& Block::get_coords(int inc_rotation_state) {
     int new_rs = rotation_state + inc_rotation_state;
     if (new_rs < 0) {

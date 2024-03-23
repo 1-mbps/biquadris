@@ -82,6 +82,14 @@ Rotation:
 - Clockwise: lower right corner takes place of lower left corner
 - Counterclockwise: top left corner replaces lower left corner
 
+### Design
+
+The Block class has a composition relationship with the Board class. It has no identity outside of a Board.
+
+This design maximizes cohesion and minimizes coupling by ensuring that **all logic for editing blocks is done within the Block class**. If a Block is rotated or moved, the Block is solely responsible for calculating its new position. The Board is only involved at the end of the process, when it receives the block's new coordinates.
+
+This approach has several advantages. For one, it allows us to write any function for editing a block - including resizing or deleting - without ever having to touch the Board class. It also ensures that the Block class is completely encapsulated, since no other routine can interfere with its logic.
+
 ### Rotation
 
 Used this for rotations:

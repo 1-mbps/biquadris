@@ -9,7 +9,7 @@ int main() {
 
     cout << "Board with block:" << endl << endl;
     Board board = Board{};
-    board.add('J');
+    board.add('T');
     board.print();
     board.rotate(true);
 
