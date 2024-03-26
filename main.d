@@ -1,1 +1,1 @@
-main.o: main.cc board.h block.h
+main.o: main.cc basicboard.h decorator.h board.h block.h heavy.h

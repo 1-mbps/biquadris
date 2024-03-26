@@ -68,18 +68,6 @@ Block::Block(char block_type): block_type{block_type} {
 
 Block::~Block() {}
 
-void Block::rotate(bool clockwise) {
-    if (clockwise) {
-        rotation_state = (rotation_state + 1) % 3;
-    } else {
-        if (rotation_state == 0) {
-            rotation_state = 3;
-        } else {
-            --rotation_state;
-        }
-    }
-}
-
 //Return a reference to avoid unnecessary copying
 std::vector<std::pair<int,int>>& Block::get_coords(int inc_rotation_state) {
     int new_rs = rotation_state + inc_rotation_state;
@@ -103,6 +91,34 @@ int Block::get_rotation_state() const {
 
 char Block::get_block_type() const {
     return block_type;
+}
+
+void Block::rotate(bool clockwise) {
+    if (clockwise) {
+        rotation_state = (rotation_state + 1) % 3;
+    } else {
+        if (rotation_state == 0) {
+            rotation_state = 3;
+        } else {
+            --rotation_state;
+        }
+    }
+}
+
+void Block::up() {
+    --origin_r;
+}
+
+void Block::down() {
+    ++origin_r;
+}
+
+void Block::left() {
+    --origin_c;
+}
+
+void Block::right() {
+    ++origin_c;
 }
 
 // void Block::print() {

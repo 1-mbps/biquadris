@@ -4,12 +4,6 @@
 
 using namespace std;
 
-Board::Board() {
-    for (int i = 0; i < r; ++i) {
-        for (int j = 0; j < c; ++j) grid[i][j] = ' ';
-    }
-}
-
 Board::~Board() {
     for (auto block : blocks) {
         block.reset(); //Use reset() instead of delete for smart pointers
@@ -26,12 +20,50 @@ void Board::add(char block_type) {
     // b.attach(graphicsdisplay); add when implemented
 }
 
-void Board::rotate(bool clockwise) {
-    if (blocks[num_blocks-1]->get_block_type() == 'O') return;
+void Board::drop() {
+
+}
+
+bool Board::rotate(bool clockwise) {
+    if (blocks[num_blocks-1]->get_block_type() == 'O') return true;
     int inc_rotation_state = clockwise ? 1 : -1;
     if (update_grid(inc_rotation_state, 0, 0)) {
         blocks[num_blocks-1]->rotate(clockwise);
+        return true;
     }
+    return false;
+}
+
+bool Board::up() {
+    if (update_grid(0, -1, 0)) {
+        blocks[num_blocks-1]->up();
+        return true;
+    }
+    return false;
+}
+
+bool Board::down() {
+    if (update_grid(0, 1, 0)) {
+        blocks[num_blocks-1]->down();
+        return true;
+    }
+    return false;
+}
+
+bool Board::left() {
+    if (update_grid(0, 0, -1)) {
+        blocks[num_blocks-1]->left();
+        return true;
+    }
+    return false;
+}
+
+bool Board::right() {
+    if (update_grid(0, 0, 1)) {
+        blocks[num_blocks-1]->right();
+        return true;
+    }
+    return false;
 }
 
 // <--- Helper functions for update_grid() --->
@@ -58,6 +90,7 @@ bool Board::update_grid(int inc_rotation_state, int inc_r, int inc_c) {
     vector<pair<int,int>> old_coords = blocks[num_blocks-1]->get_coords(0); //These are references - no unnecessary copying
     vector<pair<int,int>> new_coords = blocks[num_blocks-1]->get_coords(inc_rotation_state);
 
+    //Let n be the number of characters in a block.
     //Clear the old coordinates - O(n)
     for (auto p : old_coords) {
         grid[p.first+origin_r][p.second+origin_c] = ' ';

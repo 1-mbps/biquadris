@@ -48,7 +48,7 @@ TT
            
 -----------
 
-Board with block rotated counterclockwise to original position
+Board with block rotated counterclockwise to original position and then shifted right
 
 Level: 1
 Score: 0
@@ -56,10 +56,32 @@ Score: 0
            
            
            
-TTT        
- T         
+  TTT      
+   T       
            
            
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+-----------
+Level: 1
+Score: 0
+-----------
+           
+           
+           
+           
+           
+ TTT       
+  T        
            
            
            

@@ -18,6 +18,18 @@ If pushing to main, `git push origin main`
 
 Run `git branch [branch_name]` to create a new branch and `git checkout [other branch]` to switch to another branch. Note that you have to push all your changes first before checking out otherwise everything will get lost. I learned this the hard way over co-op
 
+## UML diagram
+
+`Block` is a concrete subclass. It has a composition relationship with Board.
+`Board` is an abstract base class. It has two subclasses, `BasicBoard` and `Decorator`.
+
+Note that abstract base class = never instantiated. Make a board using the `BasicBoard` class. This allows us to add decorators.
+
+`Decorator` has a subclass for each special action and _probably_ each level.
+Haven't worked out how levels will work yet but probably like this (discuss?)
+
+`Board` also has a class `GraphicsDisplay` as an observer.
+
 ## Board
 11 columns, 15 rows, with 3 extra before first block so total 18
 
@@ -76,6 +88,8 @@ Blocks are stored as smart pointers in a vector `blocks`. Storing blocks will be
 
 
 >Question: How could you design your system (or modify your existing design) to allow for some generated blocks to disappear from the screen if not cleared before 10 more blocks have fallen? Could the generation of such blocks be easily confined to more advanced levels?
+
+Linked list of special action decorators?
 
 ## Blocks
 Rotation:
