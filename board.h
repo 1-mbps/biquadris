@@ -26,6 +26,8 @@ class Board {
         //Checks if a coordinate (i,j) is within the bounds of the grid.
         bool is_within_bounds(int i, int j);
 
+        //add graphics display and make a class for it
+
     public:
         virtual ~Board() = 0;
 

@@ -24,9 +24,12 @@ void Board::drop() {
 
 }
 
+// <--- Block movement --->
+
 bool Board::rotate(bool clockwise) {
     if (blocks[num_blocks-1]->get_block_type() == 'O') return true;
     int inc_rotation_state = clockwise ? 1 : -1;
+    //update_grid returns bool corresponding to whether move is valid
     if (update_grid(inc_rotation_state, 0, 0)) {
         blocks[num_blocks-1]->rotate(clockwise);
         return true;
@@ -65,6 +68,9 @@ bool Board::right() {
     }
     return false;
 }
+
+// < --- >
+
 
 // <--- Helper functions for update_grid() --->
 
@@ -123,7 +129,6 @@ bool Board::update_grid(int inc_rotation_state, int inc_r, int inc_c) {
     return true;
 }
 
-//don't keep this - this is just for testing
 void Board::print() {
     cout << "Level: 1" << endl;
     cout << "Score: 0" << endl;
