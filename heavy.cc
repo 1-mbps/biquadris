@@ -31,11 +31,3 @@ bool Heavy::right() {
     }
     return false;
 }
-
-bool Heavy::right() {
-    return false;
-}
-
-void Heavy::print() {
-    component->print();
-}

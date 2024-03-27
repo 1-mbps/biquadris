@@ -13,7 +13,6 @@ class Heavy: public Decorator {
         Heavy(shared_ptr<Board> b);
         bool left() override;
         bool right() override;
-        void print() override;
 };
 
 #endif

@@ -10,8 +10,7 @@ Board::~Board() {
     }
 }
 
-void Board::add(char block_type) {
-    shared_ptr<Block> b(new Block(block_type));
+void Board::add(shared_ptr<Block> b) {
     blocks.emplace_back(b);
     ++num_blocks;
     for (auto p : b->get_coords(0)) {
@@ -129,9 +128,13 @@ bool Board::update_grid(int inc_rotation_state, int inc_r, int inc_c) {
     return true;
 }
 
+char Board::get_point(int i, int j) {
+    return grid[i][j];
+}
+
 void Board::print() {
-    cout << "Level: 1" << endl;
-    cout << "Score: 0" << endl;
+    // cout << "Level: 1" << endl;
+    // cout << "Score: 0" << endl;
     cout << "-----------" << endl;
     for (int i = 0; i < 18; ++i) {
         for (int j = 0; j < 11; ++j) {

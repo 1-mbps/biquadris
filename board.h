@@ -29,22 +29,25 @@ class Board {
         //add graphics display and make a class for it
 
     public:
+        //Board is an abstract base class, so it must have at least one pure virtual method
         virtual ~Board() = 0;
 
         //Add a block to the grid.
-        virtual void add(char block_type);
+        virtual void add(shared_ptr<Block> b);
         //In force class, override this to use block other player selected
 
         virtual void drop();
         //In blind class, override this to remove question marks
 
         //Rotate the block currently being edited.
-        bool rotate(bool clockwise);
+        virtual bool rotate(bool clockwise);
 
         virtual bool up();
         virtual bool down();
         virtual bool left();
         virtual bool right();
+
+        virtual char get_point(int i, int j);
         
         virtual void print(); //In blind class, overwrite this to print question marks if not dropped yet
 };
