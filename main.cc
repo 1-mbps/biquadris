@@ -5,13 +5,15 @@
 #include "block.h"
 #include "game.h"
 #include "level1.h"
+#include "level2.h"
 #include <iostream>
 #include <memory>
 
 using namespace std;
 
 int main() {
-    Game game{{make_shared<Level1>()}};
+    // Game game{{Level1{}, Level2{}}};
+    Game game;
 }
 
 //This is purely for testing purposes - nowhere close to an actual harness

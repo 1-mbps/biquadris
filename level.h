@@ -9,6 +9,7 @@ class Level {
     public:
         virtual ~Level() = 0;
         virtual shared_ptr<Block> block_selector() = 0;
+        virtual void do_extra();
 };
 
 #endif

@@ -1,2 +1,2 @@
-player.o: player.cc player.h level.h block.h basicboard.h decorator.h \
- board.h blind.h
+player.o: player.cc player.h basicboard.h decorator.h board.h block.h \
+ blind.h

@@ -1,11 +1,12 @@
 #ifndef __LEVEL1_H__
 #define __LEVEL1_H__
-#include "level.h"
+#include "player.h"
 
-class Level1: public Level {
+class Level1: public Player {
     public:
+        Level1();
         ~Level1();
-        virtual shared_ptr<Block> block_selector();  
+        shared_ptr<Block> block_selector() override;
 };
 
 #endif

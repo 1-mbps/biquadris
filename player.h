@@ -1,26 +1,28 @@
 #ifndef __PLAYER_H__
 #define __PLAYER_H__
-#include "level.h"
 #include "basicboard.h"
 
 class Player {
-    int level = 0;
-    int score = 0;
-    shared_ptr<Board> board = make_shared<BasicBoard>();
-    shared_ptr<Level> level_class;
+    protected:
+        int level = 0;
+        int score = 0;
+        shared_ptr<Board> board = nullptr;
     public:
-        Player();
-        ~Player();
+        virtual ~Player() = 0;
+        Player& operator=(const Player &other);
         void add();
         void drop();
 
         void print();
         void blind();
         
+        void rotate(bool clockwise);
         void left();
         void right();
 
-        void set_level_class(shared_ptr<Level> lvl);
+        virtual shared_ptr<Block> block_selector() = 0;
+        virtual void do_extra();
+
 };
 
 #endif

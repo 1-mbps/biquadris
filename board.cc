@@ -20,7 +20,10 @@ void Board::add(shared_ptr<Block> b) {
 }
 
 void Board::drop() {
-
+    bool can_go_down = true;
+    while (can_go_down) {
+        can_go_down = down();
+    }
 }
 
 // <--- Block movement --->
@@ -118,7 +121,7 @@ bool Board::update_grid(int inc_rotation_state, int inc_r, int inc_c) {
     } else {
         // restore the old coordinates - O(n)
         for (auto p : old_coords) {
-            grid[p.first+origin_r][p.second+origin_c] = ' ';
+            grid[p.first+origin_r][p.second+origin_c] = c;
         }
         return false;
     }
