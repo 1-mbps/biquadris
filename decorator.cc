@@ -7,7 +7,7 @@ Decorator::~Decorator() {
     component.reset(); //use reset() instead of delete for smart pointers
 }
 
-void Decorator::drop() {
+int Decorator::drop() {
     return component->drop();
 }
 

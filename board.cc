@@ -19,10 +19,58 @@ void Board::add(shared_ptr<Block> b) {
     // b.attach(graphicsdisplay); add when implemented
 }
 
-void Board::drop() {
+int Board::drop() {
     bool can_go_down = true;
     while (can_go_down) {
         can_go_down = down();
+    }
+    int origin_r = blocks[num_blocks-1]->get_origin_r();
+    // int origin_c = blocks[num_blocks-1]->get_origin_c();
+    vector<pair<int,int>> coords = blocks[num_blocks-1]->get_coords(0);
+    int min_r = 0; int max_r = 0;
+
+    // Get upper and lower bounds of block
+    for (auto p : coords) {
+        if (p.first < min_r) min_r = p.first;
+        if (p.first > max_r) max_r = p.first;
+    }
+
+    int rows_cleared = 0;
+
+    for (int i = min_r+origin_r; i <= max_r+origin_r; ++i) {
+        if (is_full(i)) {
+            clear_row(i);
+            ++rows_cleared;
+        }
+    }
+
+    if (rows_cleared != 0) recalibrate_grid(rows_cleared);
+
+    return rows_cleared;
+}
+
+void Board::recalibrate_grid(int rows_cleared) {
+
+    for (int i = 0; i < r; ++i) {
+        for (int j = 0; j < c; ++j) {
+            grid[i][j] = ' ';
+        }
+    }
+
+    // cout << "num blocks: " << num_blocks << endl;
+
+    for (auto block : blocks) {
+
+        for (int i = 0; i < rows_cleared; ++i) block->down();
+
+        int origin_r = block->get_origin_r();
+        int origin_c = block->get_origin_c();
+        char c = block->get_block_type();
+        vector<pair<int,int>> coords = block->get_coords(0); //These are references - no unnecessary copying
+
+        for (auto p : coords) {
+            grid[p.first+origin_r][p.second+origin_c] = c;
+        }
     }
 }
 
@@ -133,6 +181,17 @@ bool Board::update_grid(int inc_rotation_state, int inc_r, int inc_c) {
 
 char Board::get_point(int i, int j) {
     return grid[i][j];
+}
+
+bool Board::is_full(int i) {
+    for (int j = 0; j < c; ++j) if (grid[i][j] == ' ') return false;
+    return true;
+}
+
+void Board::clear_row(int i) {
+    for (auto block : blocks) {
+        block->clear_row(i);
+    }
 }
 
 void Board::print() {

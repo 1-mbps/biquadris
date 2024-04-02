@@ -69,7 +69,7 @@ Block::Block(char block_type): block_type{block_type} {
 Block::~Block() {}
 
 //Return a reference to avoid unnecessary copying
-std::vector<std::pair<int,int>>& Block::get_coords(int inc_rotation_state) {
+vector<pair<int,int>>& Block::get_coords(int inc_rotation_state) {
     int new_rs = rotation_state + inc_rotation_state;
     if (new_rs < 0) {
         new_rs = (4+new_rs);
@@ -119,6 +119,16 @@ void Block::left() {
 
 void Block::right() {
     ++origin_c;
+}
+
+void Block::clear_row(int i) {
+    for (auto it = rotations[rotation_state].begin(); it != rotations[rotation_state].end();) {
+        if (it->first + origin_r == i) {
+            rotations[rotation_state].erase(it);
+        } else {
+            ++it;
+        }
+    }
 }
 
 // void Block::print() {

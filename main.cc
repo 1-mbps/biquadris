@@ -4,8 +4,6 @@
 #include "board.h"
 #include "block.h"
 #include "game.h"
-#include "level1.h"
-#include "level2.h"
 #include <iostream>
 #include <memory>
 

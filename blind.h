@@ -12,7 +12,7 @@ class Blind: public Decorator {
     bool dropped = false;
     public:
         Blind(shared_ptr<Board> b);
-        void drop() override;
+        int drop() override;
         void print() override;
 };
 

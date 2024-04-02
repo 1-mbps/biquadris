@@ -26,6 +26,12 @@ class Board {
         //Checks if a coordinate (i,j) is within the bounds of the grid.
         bool is_within_bounds(int i, int j);
 
+        void clear_row(int i);
+
+        //Updates coordinates of all blocks on grid.
+        //Called in drop function whenever a row is cleared.
+        void recalibrate_grid(int rows_cleared);
+
         //add graphics display and make a class for it
 
     public:
@@ -36,7 +42,7 @@ class Board {
         virtual void add(shared_ptr<Block> b);
         //In force class, override this to use block other player selected
 
-        virtual void drop();
+        virtual int drop();
         //In blind class, override this to remove question marks
 
         //Rotate the block currently being edited.
@@ -48,6 +54,7 @@ class Board {
         virtual bool right();
 
         virtual char get_point(int i, int j);
+        bool is_full(int i);
         
         virtual void print(); //In blind class, overwrite this to print question marks if not dropped yet
 };

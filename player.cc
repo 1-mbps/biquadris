@@ -11,11 +11,17 @@ Player& Player::operator=(const Player& other) {
 
 void Player::add() {
     shared_ptr<Block> b = block_selector();
+    // cout << "selected block " << b->get_block_type() << endl;
     board->add(b);
+    // add_extra(); //template method
 }
 
-void Player::drop() {
-    board->drop();
+// int return is useful for Level 4
+int Player::drop() {
+    int rows_cleared = board->drop(); //board->drop() returns number of rows cleared
+    score += rows_cleared;
+    return rows_cleared;
+    // score += this number
 }
 
 void Player::blind() {
@@ -26,21 +32,25 @@ void Player::blind() {
 
 void Player::left() {
     board->left();
+    move_modifier();
 }
 
 void Player::right() {
     board->right();
+    move_modifier();
 }
 
 void Player::rotate(bool clockwise) {
     board->rotate(clockwise);
+    move_modifier();
 }
 
 void Player::print() {
+    cout << "Level: " << level << endl;
+    cout << "Score: " << score << endl;
     board->print();
 }
 
-// testing method
-void Player::do_extra() {
+void Player::add_extra() {}
 
-}
+void Player::move_modifier() {}

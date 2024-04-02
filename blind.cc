@@ -2,9 +2,9 @@
 
 Blind::Blind(shared_ptr<Board> b): Decorator{b} {}
 
-void Blind::drop() {
+int Blind::drop() {
     dropped = true;
-    component->drop();
+    return component->drop();
 }
 
 void Blind::print() {

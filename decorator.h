@@ -9,7 +9,7 @@ class Decorator: public Board {
     public:
         Decorator(shared_ptr<Board> b);
         virtual ~Decorator();
-        virtual void drop();
+        virtual int drop();
         virtual bool rotate(bool clockwise);
         virtual bool up();
         virtual bool down();

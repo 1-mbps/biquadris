@@ -30,8 +30,9 @@ class Block {
         void down(); //Moves a block down 1 unit.
         void left();
         void right();
-        
 
+        void clear_row(int i);
+        
 };
 
 #endif
