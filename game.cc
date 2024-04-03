@@ -48,6 +48,21 @@ Game::Game() {
     player1->add();
     player1->drop();
     player1->print();
+
+    //Add 5 blocks
+    player1->add();
+    player1->drop();
+    player1->add();
+    player1->drop();
+    player1->add();
+    player1->drop();
+    player1->add();
+    player1->drop();
+    player1->add();
+    player1->drop();
+    player1->blind();
+
+    player1->print();
     // player1->add();
 }
 

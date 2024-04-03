@@ -1,6 +1,6 @@
 #include "basicboard.h"
-#include "heavy.h"
-#include "blind.h"
+#include "actions.h"
+#include "actions.h"
 #include "board.h"
 #include "block.h"
 #include "game.h"

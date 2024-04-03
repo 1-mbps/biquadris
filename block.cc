@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Block::Block(char block_type): block_type{block_type} {
+Block::Block(char block_type, int level_placed): block_type{block_type}, level_placed{level_placed} {
     origin_r = 3; origin_c = 1; //(0,0) on the rotation coordinate plane == (3,1) on the grid
     switch (block_type) {
         case 'I':
@@ -63,7 +63,7 @@ Block::Block(char block_type): block_type{block_type} {
             };
             break;
         case '*':
-            origin_r = 3; origin_c = 5;
+            origin_r = 3; origin_c = 5; chars_left = 1;
             rotations = {{{0,0},{0,0},{0,0},{0,0}}};
             break;
     }
@@ -125,14 +125,20 @@ void Block::right() {
     ++origin_c;
 }
 
-void Block::clear_row(int i) {
+// Returns how many points a player would score after the block is changed.
+// If the block has been destroyed, player gets (level+1)^2 points.
+// If not, player gets 0
+int Block::clear_row(int i) {
     for (auto it = rotations[rotation_state].begin(); it != rotations[rotation_state].end();) {
         if (it->first + origin_r == i) {
             rotations[rotation_state].erase(it);
+            --chars_left;
         } else {
             ++it;
         }
     }
+    if (chars_left == 0) return pow(level_placed+1, 2);
+    return 0;
 }
 
 // void Block::print() {

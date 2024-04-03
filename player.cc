@@ -1,5 +1,6 @@
 #include "player.h"
-#include "blind.h"
+#include "actions.h"
+#include <cmath>
 
 Player::~Player() {
     board.reset();
@@ -17,8 +18,10 @@ void Player::add(shared_ptr<Block> b) {
 
 // int return is useful for Level 4
 void Player::drop() {
-    int rows_cleared = board->drop(); //board->drop() returns number of rows cleared
-    score += rows_cleared;
+    pair<int,int> drop_values = board->drop(); //board->drop() returns number of rows cleared
+    int rows_cleared = drop_values.first;
+    int points_gained = drop_values.second;
+    score += pow((level+rows_cleared), 2) + points_gained;
     add_extra(rows_cleared); //template method
     // score += this number
 }

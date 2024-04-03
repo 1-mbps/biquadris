@@ -3,6 +3,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <cmath>
 
 class Block {
 
@@ -14,8 +15,11 @@ class Block {
     std::vector<std::vector<std::pair<int,int>>> rotations;
     int rotation_state = 0;
 
+    const int level_placed;
+    int chars_left = 4; //How many characters left. 0 -> block is destroyed
+
     public:
-        Block(char block_type);
+        Block(char block_type, int level_placed);
         ~Block();
 
         //Accessors
@@ -31,7 +35,7 @@ class Block {
         void left();
         void right();
 
-        void clear_row(int i);
+        int clear_row(int i); //Returns true if entire block has been cleared
         
 };
 

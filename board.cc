@@ -19,7 +19,7 @@ void Board::add(shared_ptr<Block> b) {
     // b.attach(graphicsdisplay); add when implemented
 }
 
-int Board::drop() {
+pair<int,int> Board::drop() {
     bool can_go_down = true;
     while (can_go_down) {
         can_go_down = down();
@@ -36,17 +36,18 @@ int Board::drop() {
     }
 
     int rows_cleared = 0;
+    int points_gained = 0;
 
     for (int i = min_r+origin_r; i <= max_r+origin_r; ++i) {
         if (is_full(i)) {
-            clear_row(i);
+            points_gained += clear_row(i);
             ++rows_cleared;
         }
     }
 
     if (rows_cleared != 0) recalibrate_grid(rows_cleared);
 
-    return rows_cleared;
+    return make_pair(rows_cleared, points_gained);
 }
 
 void Board::recalibrate_grid(int rows_cleared) {
@@ -188,10 +189,12 @@ bool Board::is_full(int i) {
     return true;
 }
 
-void Board::clear_row(int i) {
+int Board::clear_row(int i) {
+    int points_gained = 0;
     for (auto block : blocks) {
-        block->clear_row(i);
+        points_gained += block->clear_row(i);
     }
+    return points_gained;
 }
 
 void Board::print() {
