@@ -129,3 +129,10 @@ if all 11 columns full, clear row:
 
 or just loop over `grid_dict`, making the state of each cell equal to the state of what's above -->
 
+## Testing
+
+Things to test:
+- Clearing multiple rows at once
+- Rotate every block every possible combination
+- Do on all levels, all special actions
+

@@ -3,15 +3,16 @@
 #include "basicboard.h"
 
 class Player {
+    friend class Level0;
+    shared_ptr<Board> board = nullptr;
     protected:
         int level = 0;
         int score = 0;
-        shared_ptr<Board> board = nullptr;
     public:
         virtual ~Player() = 0;
         Player& operator=(const Player &other);
-        void add();
-        int drop(); //Drops block, returns number of rows cleared
+        void add(shared_ptr<Block> b = nullptr);
+        void drop(); //Drops block, returns number of rows cleared
 
         void print();
         void blind();
@@ -19,9 +20,11 @@ class Player {
         void rotate(bool clockwise);
         void left();
         void right();
+        void up();
+        void down();
 
         virtual shared_ptr<Block> block_selector() = 0;
-        virtual void add_extra();
+        virtual void add_extra(int rows_cleared);
         virtual void move_modifier();
 };
 

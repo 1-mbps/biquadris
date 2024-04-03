@@ -62,6 +62,10 @@ Block::Block(char block_type): block_type{block_type} {
                 {{1, 0}, {0, 0}, {-1, 0}, {0, 1}},
             };
             break;
+        case '*':
+            origin_r = 3; origin_c = 5;
+            rotations = {{{0,0},{0,0},{0,0},{0,0}}};
+            break;
     }
     // board->add(this);
 }

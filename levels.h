@@ -35,12 +35,13 @@ class Level3: public Player {
 };
 
 class Level4: public Player {
+    int moves_since_last_clear = 0;
     public:
         Level4();
         Level4(const Player &p);
         ~Level4();
         shared_ptr<Block> block_selector() override;
-        void add_extra() override;
+        void add_extra(int rows_cleared) override;
         void move_modifier() override;
 };
 

@@ -9,18 +9,17 @@ Player& Player::operator=(const Player& other) {
     return *this;
 }
 
-void Player::add() {
-    shared_ptr<Block> b = block_selector();
+void Player::add(shared_ptr<Block> b) {
+    if (b == nullptr) b = block_selector();
     // cout << "selected block " << b->get_block_type() << endl;
     board->add(b);
-    // add_extra(); //template method
 }
 
 // int return is useful for Level 4
-int Player::drop() {
+void Player::drop() {
     int rows_cleared = board->drop(); //board->drop() returns number of rows cleared
     score += rows_cleared;
-    return rows_cleared;
+    add_extra(rows_cleared); //template method
     // score += this number
 }
 
@@ -40,6 +39,16 @@ void Player::right() {
     move_modifier();
 }
 
+void Player::up() {
+    board->up();
+    move_modifier();
+}
+
+void Player::down() {
+    board->down();
+    move_modifier();
+}
+
 void Player::rotate(bool clockwise) {
     board->rotate(clockwise);
     move_modifier();
@@ -51,6 +60,6 @@ void Player::print() {
     board->print();
 }
 
-void Player::add_extra() {}
+void Player::add_extra(int rows_cleared) {}
 
 void Player::move_modifier() {}
