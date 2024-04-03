@@ -57,7 +57,8 @@ class Board {
         virtual char get_point(int i, int j);
         bool is_full(int i);
         
-        virtual void print(); //In blind class, overwrite this to print question marks if not dropped yet
+        //In blind class, this is overridden to print question marks if not dropped yet
+        virtual void print_line(int line);
 };
 
 #endif

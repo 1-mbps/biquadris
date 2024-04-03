@@ -13,7 +13,7 @@ class Blind: public Decorator {
     public:
         Blind(shared_ptr<Board> b);
         pair<int,int> drop() override;
-        void print() override;
+        void print_line(int line) override;
 };
 
 class Heavy: public Decorator {

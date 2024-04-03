@@ -31,8 +31,8 @@ bool Decorator::right() {
     return component->right();
 }
 
-void Decorator::print() {
-    return component->print();
+void Decorator::print_line(int line) {
+    return component->print_line(line);
 }
 
 char Decorator::get_point(int i, int j) {

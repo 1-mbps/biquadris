@@ -11,6 +11,8 @@ class Game {
     shared_ptr<Player> player2 = make_shared<Level0>();
     vector<Player> levels;
 
+    void print_players();
+
     public:
         Game();
         ~Game();

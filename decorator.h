@@ -15,7 +15,7 @@ class Decorator: public Board {
         virtual bool down();
         virtual bool left();
         virtual bool right();
-        virtual void print();
+        virtual void print_line(int line);
         char get_point(int i, int j);
 };
 

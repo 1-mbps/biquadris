@@ -3,6 +3,7 @@
 // <----- Level0 ----->
 
 Level0::Level0() { board = make_shared<BasicBoard>(); }
+Level0::Level0(const Player &p): Player{p} {}
 Level0::~Level0() {}
 
 shared_ptr<Block> Level0::block_selector() {

@@ -11,22 +11,18 @@ pair<int,int> Blind::drop() {
     return component->drop();
 }
 
-void Blind::print() {
+void Blind::print_line(int line) {
     if (dropped == true) {
-        component->print();
+        component->print_line(line);
     } else {
-        cout << "-----------" << endl;
-        for (int i = 0; i < 18; ++i) {
-            for (int j = 0; j < 11; ++j) {
-                if ((2 <= i && i <= 11) && (2 <= j && j <= 8)) {
-                    cout << '?';
-                } else {
-                    cout << component->get_point(i,j);
-                }
+        bool on_line = (2 <= line && line <= 11);
+        for (int j = 0; j < 11; ++j) {
+            if (on_line && (2 <= j && j <= 8)) {
+                cout << '?';
+            } else {
+                cout << component->get_point(line,j);
             }
-            cout << endl;
         }
-        cout << "-----------" << endl;
     }
 }
 

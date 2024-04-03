@@ -5,6 +5,7 @@
 class Level0: public Player {
     public:
         Level0();
+        Level0(const Player &p);
         ~Level0();
         shared_ptr<Block> block_selector() override;
 };

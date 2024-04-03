@@ -57,12 +57,17 @@ void Player::rotate(bool clockwise) {
     move_modifier();
 }
 
-void Player::print() {
-    cout << "Level: " << level << endl;
-    cout << "Score: " << score << endl;
-    board->print();
+void Player::print_line(int line) {
+    // cout << "Level: " << level << endl;
+    // cout << "Score: " << score << endl;
+    board->print_line(line);
 }
 
 void Player::add_extra(int rows_cleared) {}
 
 void Player::move_modifier() {}
+
+// Accessors:
+
+int Player::get_level() { return level; }
+int Player::get_score() { return score; }
