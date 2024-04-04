@@ -2,25 +2,6 @@
 #include "levels.h"
 
 Game::Game() {
-    // player1->add();
-    // player1->right();
-    // player1->right();
-    // player1->rotate(true);
-    // player1->drop();
-    // player1->add();
-    // player1->drop();
-    // print_players();
-    // player1 = make_shared<Level1>(*player1);
-    // player1->add();
-    // print_players();
-    // player1->drop();
-    // print_players();
-    // player1->blind();
-    // print_players();
-    // player1->right();
-    // player1->right();
-    // player1->drop();
-    // print_players();
 
     player1->add();
     player1->drop();
@@ -66,6 +47,7 @@ Game::Game() {
 
     print_players();
     
+    // On design document, write "fields are the same, so no need to overload copy assignment operator"
     player2 = make_shared<Level4>(*player2);
     player2->add();
     player2->drop();

@@ -4,12 +4,27 @@
 #include "board.h"
 #include "block.h"
 #include "game.h"
+#include "trie.h"
 #include <iostream>
 #include <memory>
 
 using namespace std;
 
 int main() {
+
+    // string s = "left";
+
+    // Trie trie;
+    // trie.insert(s);
+    // trie.insert("level");
+
+    // if (trie.in_trie(s)) { cout << "Found " << s << endl; }
+    // if (trie.in_trie("le")) { cout << "Found le!" << endl; }
+    // if (trie.in_trie("lef")) { cout << "Found lef!" << endl; }
+    // if (trie.in_trie("lev")) { cout << "Found lev!" << endl; }
+    // if (trie.in_trie("lefte")) { cout << "Found lefte!" << endl; }
+    // if (trie.in_trie("feiofjowfjwef")) { cout << "Found feiofjowfjwef!" << endl; }
+
     // Game game{{Level1{}, Level2{}}};
     Game game;
 }

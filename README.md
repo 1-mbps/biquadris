@@ -136,3 +136,6 @@ Things to test:
 - Rotate every block every possible combination
 - Do on all levels, all special actions
 
+Prepare a list of commands to show TA during testing
+Something that demonstrates clearing rows, special actions etc.
+

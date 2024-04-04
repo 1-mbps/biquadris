@@ -12,7 +12,6 @@ Player& Player::operator=(const Player& other) {
 
 void Player::add(shared_ptr<Block> b) {
     if (b == nullptr) b = block_selector();
-    // cout << "selected block " << b->get_block_type() << endl;
     board->add(b);
 }
 

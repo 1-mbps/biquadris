@@ -198,8 +198,6 @@ int Board::clear_row(int i) {
 }
 
 void Board::print_line(int line) {
-    // cout << "Level: 1" << endl;
-    // cout << "Score: 0" << endl;
     for (int j = 0; j < 11; ++j) {
         cout << grid[line][j];
     }

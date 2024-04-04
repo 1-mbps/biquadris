@@ -10,7 +10,8 @@ using namespace std;
 // This is an abstract base class. As such, it has no constructor.
 // To instantiate a board, use the BasicBoard class.
 class Board {
-    protected:
+    friend class BasicBoard;
+    private:
         const int r = 18; //Number of rows
         const int c = 11; //Number of columns
         char grid[18][11];
