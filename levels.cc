@@ -7,7 +7,7 @@ Level0::Level0(const Player &p): Player{p} {}
 Level0::~Level0() {}
 
 shared_ptr<Block> Level0::block_selector() {
-    shared_ptr<Block> b(new Block('I', 0));
+    shared_ptr<Block> b(new Block('I', 0)); //for now - change later
     return b;
 }
 
@@ -21,7 +21,7 @@ Level1::Level1(const Player &p): Player{p} {}
 Level1::~Level1() {}
 
 shared_ptr<Block> Level1::block_selector() {
-    shared_ptr<Block> b(new Block('T', 1));
+    shared_ptr<Block> b(new Block('T', 1)); //for now - change later
     return b;
 }
 
@@ -35,7 +35,8 @@ Level2::Level2(const Player &p): Player{p} {}
 Level2::~Level2() {}
 
 shared_ptr<Block> Level2::block_selector() {
-    shared_ptr<Block> b(new Block('J', 2)); //for now - change this
+    char block_type = selections[rand() % 7];
+    shared_ptr<Block> b(new Block(block_type, 2));
     return b;
 }
 
@@ -49,7 +50,8 @@ Level3::Level3(const Player &p): Player{p} {}
 Level3::~Level3() {}
 
 shared_ptr<Block> Level3::block_selector() {
-    shared_ptr<Block> b(new Block('S', 3)); //for now - change this
+    char block_type = selections[rand() % 9];
+    shared_ptr<Block> b(new Block(block_type, 3));
     return b;
 }
 
@@ -67,7 +69,8 @@ Level4::Level4(const Player &p): Player{p} {}
 Level4::~Level4() {}
 
 shared_ptr<Block> Level4::block_selector() {
-    shared_ptr<Block> b(new Block('S', 4)); //for now - change this
+    char block_type = selections[rand() % 9];
+    shared_ptr<Block> b(new Block(block_type, 4));
     return b;
 }
 

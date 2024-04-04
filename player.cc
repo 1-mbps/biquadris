@@ -1,6 +1,8 @@
 #include "player.h"
 #include "actions.h"
 #include <cmath>
+#include <cstdlib>
+#include <ctime>
 
 Player::~Player() {
     board.reset();
@@ -10,19 +12,26 @@ Player& Player::operator=(const Player& other) {
     return *this;
 }
 
+void seed_rng() {
+    static bool seeded = false;
+    if (seeded == false) {
+        srand(time(NULL));
+        seeded = true;
+    }
+}
+
 void Player::add(shared_ptr<Block> b) {
+    seed_rng();
     if (b == nullptr) b = block_selector();
     board->add(b);
 }
 
-// int return is useful for Level 4
 void Player::drop() {
     pair<int,int> drop_values = board->drop(); //board->drop() returns number of rows cleared
     int rows_cleared = drop_values.first;
     int points_gained = drop_values.second;
     score += pow((level+rows_cleared), 2) + points_gained;
     add_extra(rows_cleared); //template method
-    // score += this number
 }
 
 void Player::blind() {
@@ -57,8 +66,6 @@ void Player::rotate(bool clockwise) {
 }
 
 void Player::print_line(int line) {
-    // cout << "Level: " << level << endl;
-    // cout << "Score: " << score << endl;
     board->print_line(line);
 }
 

@@ -1,8 +1,3 @@
-#include "basicboard.h"
-#include "actions.h"
-#include "actions.h"
-#include "board.h"
-#include "block.h"
 #include "game.h"
 #include "trie.h"
 #include <iostream>
@@ -12,30 +7,23 @@ using namespace std;
 
 int main() {
 
-    string s = "left";
+    // string s = "left";
 
-    Trie trie;
-    trie.insert(s);
-    trie.insert("level");
+    // Trie trie;
+    // trie.insert(s);
+    // trie.insert("level");
 
-    cout << "le - closest match: " << trie.return_closest_match("le") << endl;
-    cout << "lef - closest match: " << trie.return_closest_match("lef") << endl;
-    cout << "left - closest match: " << trie.return_closest_match("left") << endl;
-    cout << "lev - closest match: " << trie.return_closest_match("lev") << endl;
-    cout << "levv - closest match: " << trie.return_closest_match("levv") << endl;
-    cout << "levelup - closest match: " << trie.return_closest_match("levelup") << endl;
-    cout << "lefte - closest match: " << trie.return_closest_match("lefte") << endl;
-    cout << "wfefwewefewf - closest match: " << trie.return_closest_match("wfefew") << endl;
-
-    // if (trie.in_trie(s)) { cout << "Found " << s << endl; }
-    // if (trie.in_trie("le")) { cout << "Found le!" << endl; }
-    // if (trie.in_trie("lef")) { cout << "Found lef!" << endl; }
-    // if (trie.in_trie("lev")) { cout << "Found lev!" << endl; }
-    // if (trie.in_trie("lefte")) { cout << "Found lefte!" << endl; }
-    // if (trie.in_trie("feiofjowfjwef")) { cout << "Found feiofjowfjwef!" << endl; }
+    // cout << "le - closest match: " << trie.return_closest_match("le") << endl;
+    // cout << "lef - closest match: " << trie.return_closest_match("lef") << endl;
+    // cout << "left - closest match: " << trie.return_closest_match("left") << endl;
+    // cout << "lev - closest match: " << trie.return_closest_match("lev") << endl;
+    // cout << "levv - closest match: " << trie.return_closest_match("levv") << endl;
+    // cout << "levelup - closest match: " << trie.return_closest_match("levelup") << endl;
+    // cout << "lefte - closest match: " << trie.return_closest_match("lefte") << endl;
+    // cout << "wfefwewefewf - closest match: " << trie.return_closest_match("wfefew") << endl;
 
     // Game game{{Level1{}, Level2{}}};
-    // Game game;
+    Game game;
 }
 
 //This is purely for testing purposes - nowhere close to an actual harness
