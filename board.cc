@@ -205,6 +205,10 @@ void Board::print_line(int line) {
     }
 }
 
+void Board::add_window(shared_ptr<GraphicsDisplay> window) {
+    display = window;
+}
+
 // void Board::attach(Observer *o) {
 //     observers.emplace_back();
 // }

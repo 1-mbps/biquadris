@@ -61,6 +61,8 @@ class Board {
         
         //In blind class, this is overridden to print question marks if not dropped yet
         virtual void print_line(int line);
+
+        void add_window(shared_ptr<GraphicsDisplay> window);
 };
 
 #endif

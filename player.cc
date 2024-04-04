@@ -72,6 +72,6 @@ void Player::move_modifier() {}
 int Player::get_level() { return level; }
 int Player::get_score() { return score; }
 
-void Player::add_window(shared_ptr<Xwindow> w) {
-    window = w;
+void Player::add_window(shared_ptr<GraphicsDisplay> display) {
+    board->add_window(display);
 }

@@ -10,7 +10,7 @@ class Game {
     shared_ptr<Player> player1 = make_shared<Level0>();
     shared_ptr<Player> player2 = make_shared<Level0>();
     vector<Player> levels;
-    shared_ptr<Xwindow> w = make_shared<Xwindow>();
+    shared_ptr<GraphicsDisplay> display = make_shared<GraphicsDisplay>();
 
     void print_players();
 

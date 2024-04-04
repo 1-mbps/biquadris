@@ -3,9 +3,8 @@
 
 Game::Game() {
 
-    w->fillRectangle(330, 0, 40, 630, Xwindow::Black);
-    player1->add_window(w);
-    player2->add_window(w);
+    player1->add_window(display);
+    player2->add_window(display);
 
     player1->add();
     player1->drop();
