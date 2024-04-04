@@ -6,8 +6,8 @@ DEPENDS = ${OBJECTS:.o=.d}   # .d file is list of dependencies for corresponding
 EXEC = biquadris
 
 ${EXEC}: ${OBJECTS}
-	${CXX} ${CXXFLAGS} ${OBJECTS} -o ${EXEC} # Q1
-	# ${CXX} ${CXXFLAGS} ${OBJECTS} -o ${EXEC} -lX11 # Q2
+	# ${CXX} ${CXXFLAGS} ${OBJECTS} -o ${EXEC} # Q1
+	${CXX} ${CXXFLAGS} ${OBJECTS} -o ${EXEC} -lX11 # Q2
 
 -include ${DEPENDS}
 
