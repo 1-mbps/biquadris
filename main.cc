@@ -1,20 +1,15 @@
-#include "basicboard.h"
-#include "actions.h"
-#include "actions.h"
-#include "board.h"
-#include "block.h"
 #include "game.h"
 #include <iostream>
 #include <memory>
 #include "window.h"
-#include "graphicsdisplay.h"
 
 using namespace std;
 
 int main() {
     // Game game{{Level1{}, Level2{}}};
-    Xwindow w;
-    w.fillRectangle(330, 0, 40, 630, Xwindow::Black);
+    // Xwindow w;
+    // w.fillRectangle(330, 0, 40, 630, Xwindow::Black);
+    Game game;
     //tests
     /*w.drawString(10, 10, "Hello There Buddy");
     w.fillRectangle(0, 30, 30, 30, 5);
@@ -28,9 +23,6 @@ int main() {
    g.attach(&graphics);
     */
    //idek man
-
-    char c;
-    cin >> c;
 }
 
 //This is purely for testing purposes - nowhere close to an actual harness

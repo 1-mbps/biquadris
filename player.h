@@ -1,10 +1,12 @@
 #ifndef __PLAYER_H__
 #define __PLAYER_H__
 #include "basicboard.h"
+#include "window.h"
 
 class Player {
     friend class Level0;
     shared_ptr<Board> board = nullptr;
+    shared_ptr<Xwindow> window;
     protected:
         int level = 0;
         int score = 0;
@@ -30,6 +32,8 @@ class Player {
         // Accessors:
         int get_level();
         int get_score();
+
+        void add_window(shared_ptr<Xwindow> w);
 };
 
 #endif

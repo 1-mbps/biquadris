@@ -2,7 +2,6 @@
 #define _OBSERVER_H_
 #include <map>
 #include <vector>
-#include "board.h"
 
 class Observer {
   public:

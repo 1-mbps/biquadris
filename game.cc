@@ -2,76 +2,64 @@
 #include "levels.h"
 
 Game::Game() {
+
+    w->fillRectangle(330, 0, 40, 630, Xwindow::Black);
+    player1->add_window(w);
+    player2->add_window(w);
+
+    player1->add();
+    player1->drop();
+    // player2->add();
+    // player2->drop();
+    print_players();
+
+    char c;
+    cin >> c;
     // player1->add();
     // player1->right();
     // player1->right();
-    // player1->rotate(true);
+    // player1->right();
+    // player1->right();
     // player1->drop();
     // player1->add();
     // player1->drop();
     // print_players();
     // player1 = make_shared<Level1>(*player1);
     // player1->add();
+    // player1->drop();
+    // player1->add();
+    // player1->rotate(true);
+    // player1->rotate(true);
+    // for (int i = 0; i < 15; ++i) player1->right();
     // print_players();
     // player1->drop();
     // print_players();
+    // player1 = make_shared<Level4>(*player1);
+    // player1->add();
+    // player1->drop();
+    // print_players();
+
+    // //Add 5 blocks
+    // player1->add();
+    // player1->drop();
+    // player1->add();
+    // player1->drop();
+    // player1->add();
+    // player1->drop();
+    // player1->add();
+    // player1->drop();
+    // player1->add();
+    // player1->drop();
     // player1->blind();
+
     // print_players();
-    // player1->right();
-    // player1->right();
-    // player1->drop();
-    // print_players();
-
-    player1->add();
-    player1->drop();
-    player2->add();
-    player2->drop();
-    print_players();
-    player1->add();
-    player1->right();
-    player1->right();
-    player1->right();
-    player1->right();
-    player1->drop();
-    player1->add();
-    player1->drop();
-    print_players();
-    player1 = make_shared<Level1>(*player1);
-    player1->add();
-    player1->drop();
-    player1->add();
-    player1->rotate(true);
-    player1->rotate(true);
-    for (int i = 0; i < 15; ++i) player1->right();
-    print_players();
-    player1->drop();
-    print_players();
-    player1 = make_shared<Level4>(*player1);
-    player1->add();
-    player1->drop();
-    print_players();
-
-    //Add 5 blocks
-    player1->add();
-    player1->drop();
-    player1->add();
-    player1->drop();
-    player1->add();
-    player1->drop();
-    player1->add();
-    player1->drop();
-    player1->add();
-    player1->drop();
-    player1->blind();
-
-    print_players();
     
-    player2 = make_shared<Level4>(*player2);
-    player2->add();
-    player2->drop();
-    player2 = make_shared<Level0>(*player2);
-    player2->add();
-    print_players();
+    // player2 = make_shared<Level4>(*player2);
+    // player2->add();
+    // player2->drop();
+    // player2 = make_shared<Level0>(*player2);
+    // player2->add();
+    // print_players();
 
 }
 
@@ -103,7 +91,7 @@ void Game::print_players() {
         cout << endl;
     }
     cout << "-----------" << space << "-----------" << endl;
-    notifyObservers();
+    // notifyObservers();
 }
 
 int Game::p1_level() {
@@ -122,10 +110,10 @@ int Game::p2_score() {
     return player2->get_score();
 }
 
-void Game::attach(Observer *o) {
-    observers.emplace_back();
-}
+// void Game::attach(Observer *o) {
+//     observers.emplace_back();
+// }
 
-void Game::notifyObservers() {
-    for (auto ob : observers) ob->notify();
-}
+// void Game::notifyObservers() {
+//     for (auto ob : observers) ob->notify();
+// }
