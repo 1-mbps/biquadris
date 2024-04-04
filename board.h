@@ -1,6 +1,7 @@
 #ifndef _BOARD_H_
 #define _BOARD_H_
 #include "block.h"
+#include "observer.h"
 #include <map>
 #include <vector>
 #include <memory>
@@ -16,6 +17,7 @@ class Board {
         char grid[18][11];
         int num_blocks = 0;
         vector<shared_ptr<Block>> blocks;
+        vector<Observer*> observers;
 
         //Called by one of the rotation/translation functions whenever a block is updated.
         bool update_grid(int inc_rotation_state, int inc_r, int inc_c);
@@ -59,6 +61,11 @@ class Board {
         
         //In blind class, this is overridden to print question marks if not dropped yet
         virtual void print_line(int line);
+        
+        //Observers for Graphics Display
+        
+        void attach(Observer *o);
+        void notifyObservers(); 
 };
 
 #endif

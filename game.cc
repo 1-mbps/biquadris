@@ -75,6 +75,8 @@ Game::Game() {
 
 }
 
+// need to add notifyObservers after each action in the while loop
+
 Game::~Game() {
     levels.clear();
 }
@@ -101,4 +103,29 @@ void Game::print_players() {
         cout << endl;
     }
     cout << "-----------" << space << "-----------" << endl;
+    notifyObservers();
+}
+
+int Game::p1_level() {
+    return player1->get_level();
+}
+
+int Game::p2_level() {
+    return player2->get_level();
+}
+
+int Game::p1_score() {
+    return player1->get_score();
+}
+
+int Game::p2_score() {
+    return player2->get_score();
+}
+
+void Game::attach(Observer *o) {
+    observers.emplace_back();
+}
+
+void Game::notifyObservers() {
+    for (auto ob : observers) ob->notify();
 }

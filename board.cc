@@ -16,7 +16,7 @@ void Board::add(shared_ptr<Block> b) {
     for (auto p : b->get_coords(0)) {
         grid[p.first+b->get_origin_r()][p.second+b->get_origin_c()] = b->get_block_type();
     }
-    // b.attach(graphicsdisplay); add when implemented
+    notifyObservers();
 }
 
 pair<int,int> Board::drop() {
@@ -47,6 +47,7 @@ pair<int,int> Board::drop() {
 
     if (rows_cleared != 0) recalibrate_grid(rows_cleared);
 
+    notifyObservers();
     return make_pair(rows_cleared, points_gained);
 }
 
@@ -73,6 +74,7 @@ void Board::recalibrate_grid(int rows_cleared) {
             grid[p.first+origin_r][p.second+origin_c] = c;
         }
     }
+    notifyObservers();
 }
 
 // <--- Block movement --->
@@ -83,6 +85,7 @@ bool Board::rotate(bool clockwise) {
     //update_grid returns bool corresponding to whether move is valid
     if (update_grid(inc_rotation_state, 0, 0)) {
         blocks[num_blocks-1]->rotate(clockwise);
+        notifyObservers();
         return true;
     }
     return false;
@@ -91,6 +94,7 @@ bool Board::rotate(bool clockwise) {
 bool Board::up() {
     if (update_grid(0, -1, 0)) {
         blocks[num_blocks-1]->up();
+        notifyObservers();
         return true;
     }
     return false;
@@ -99,6 +103,7 @@ bool Board::up() {
 bool Board::down() {
     if (update_grid(0, 1, 0)) {
         blocks[num_blocks-1]->down();
+        notifyObservers();
         return true;
     }
     return false;
@@ -107,6 +112,7 @@ bool Board::down() {
 bool Board::left() {
     if (update_grid(0, 0, -1)) {
         blocks[num_blocks-1]->left();
+        notifyObservers();
         return true;
     }
     return false;
@@ -115,6 +121,7 @@ bool Board::left() {
 bool Board::right() {
     if (update_grid(0, 0, 1)) {
         blocks[num_blocks-1]->right();
+        notifyObservers();
         return true;
     }
     return false;
@@ -176,7 +183,7 @@ bool Board::update_grid(int inc_rotation_state, int inc_r, int inc_c) {
     }
 
     //Total running time: O(3n) = O(n)
-
+    notifyObservers();
     return true;
 }
 
@@ -194,6 +201,7 @@ int Board::clear_row(int i) {
     for (auto block : blocks) {
         points_gained += block->clear_row(i);
     }
+    notifyObservers();
     return points_gained;
 }
 
@@ -203,4 +211,13 @@ void Board::print_line(int line) {
     for (int j = 0; j < 11; ++j) {
         cout << grid[line][j];
     }
+    notifyObservers();
+}
+
+void Board::attach(Observer *o) {
+    observers.emplace_back();
+}
+
+void Board::notifyObservers() {
+    for (auto ob : observers) ob->notify();
 }
