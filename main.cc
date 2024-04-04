@@ -22,10 +22,11 @@ int main() {
     w.fillRectangle(150, 180, 30, 30, 5);
     */
 
-   Game g;
+   /*Game g;
    char grid[11][18] = {""};
    GraphicsDisplay graphics(g, grid);
    g.attach(&graphics);
+   */
    //idek man
 
     char c;
