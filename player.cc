@@ -22,8 +22,9 @@ void seed_rng() {
 
 void Player::add(shared_ptr<Block> b) {
     seed_rng();
-    if (b == nullptr) b = block_selector();
+    if (b == nullptr) b = next;
     board->add(b);
+    next = block_selector();
 }
 
 void Player::drop() {
@@ -36,6 +37,14 @@ void Player::drop() {
 
 void Player::blind() {
     board = make_shared<Blind>(board);
+}
+
+void Player::heavy() {
+    board = make_shared<Heavy>(board);
+}
+
+void Player::force(char block_type) {
+    board = make_shared<Force>(board, block_type);
 }
 
 //In force, override board::add() - delete b and replace it
@@ -73,7 +82,19 @@ void Player::add_extra(int rows_cleared) {}
 
 void Player::move_modifier() {}
 
+void Player::update_level(int new_level) {
+    board->update_level(new_level);
+}
+
 // Accessors:
 
-int Player::get_level() { return level; }
-int Player::get_score() { return score; }
+int Player::get_level() const { return level; }
+int Player::get_score() const { return score; }
+
+vector<pair<int,int>> Player::get_next_coords() const {
+    return next->get_coords(0);
+}
+
+char Player::get_next_block_type() const {
+    return next->get_block_type();
+}

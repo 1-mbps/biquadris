@@ -16,6 +16,7 @@ class Board {
         const int c = 11; //Number of columns
         char grid[18][11];
         int num_blocks = 0;
+        int level = 0;
         vector<shared_ptr<Block>> blocks;
 
         //Called by one of the rotation/translation functions whenever a block is updated.
@@ -57,9 +58,12 @@ class Board {
 
         virtual char get_point(int i, int j);
         bool is_full(int i);
+        int get_level() const;
         
         //In blind class, this is overridden to print question marks if not dropped yet
         virtual void print_line(int line);
+
+        void update_level(int new_level);
 };
 
 #endif

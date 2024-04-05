@@ -53,6 +53,13 @@ Game::Game() {
     player2->drop();
     player2 = make_shared<Level0>(*player2);
     player2->add();
+    player2->force('O');
+    player2->add();
+    player2->drop();
+    player2->add();
+    player2->drop();
+    player2->add();
+    player2->drop();
     print_players();
 
 }
@@ -67,7 +74,7 @@ int num_digits(int n) {
 }
 
 void Game::print_players() {
-    string space = "        ";
+    string space = "        "; //8 spaces
     cout << "Level: " << player1->get_level() << space+"   " << "Level: " << player2->get_level() << endl;
     cout << "Score: " << player1->get_score() << space;
     
@@ -83,4 +90,34 @@ void Game::print_players() {
         cout << endl;
     }
     cout << "-----------" << space << "-----------" << endl;
+    vector<pair<int,int>> p1_next_coords = player1->get_next_coords();
+    vector<pair<int,int>> p2_next_coords = player2->get_next_coords();
+    char c1 = player1->get_next_block_type();
+    char c2 = player2->get_next_block_type();
+    char nexts[4][30];
+
+    // cout << "got here!" << endl;
+
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 30; ++j) {
+            nexts[i][j] = ' ';
+        }
+    }
+
+    for (auto p : p1_next_coords) {
+        nexts[p.first][p.second+3] = c1;
+    }
+
+    for (auto p : p2_next_coords) {
+        nexts[p.first][p.second+22] = c2;
+    }
+
+    cout << "Next:" << "      "+space << "Next:" << endl;
+
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 30; ++j) {
+            cout << nexts[i][j];
+        }
+        cout << endl;
+    }
 }

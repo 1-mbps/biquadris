@@ -1,23 +1,189 @@
-ri - closest match: right
-le - closest match: NOT FOUND
-lef - closest match: left
-left - closest match: left
-lev - closest match: NOT FOUND
-levelu - closest match: levelup
-ran - closest match: random
-levv - closest match: NOT FOUND
-levelup - closest match: levelup
-lefte - closest match: NOT FOUND
-wfefwewefewf - closest match: NOT FOUND
-left - closest match: left
-right - closest match: right
-down - closest match: down
-clockwise - closest match: clockwise
-counterclockwise - closest match: counterclockwise
-drop - closest match: drop
-levelup - closest match: levelup
-leveldown - closest match: leveldown
-norandom - closest match: norandom
-random - closest match: random
-sequence - closest match: sequence
-restart - closest match: restart
+Level: 0           Level: 0
+Score: 0           Score: 0
+-----------        -----------
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+IIII               IIII       
+-----------        -----------
+Next:              Next:
+   IIII               IIII    
+                              
+                              
+                              
+Level: 0           Level: 0
+Score: 0           Score: 0
+-----------        -----------
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+IIII                          
+IIIIIIII           IIII       
+-----------        -----------
+Next:              Next:
+   IIII               IIII    
+                              
+                              
+                              
+Level: 0           Level: 0
+Score: 0           Score: 0
+-----------        -----------
+                              
+                              
+         T                    
+        TTT                   
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+IIII                          
+IIII                          
+IIIIIIII           IIII       
+-----------        -----------
+Next:              Next:
+  TTT                 IIII    
+   T                          
+                              
+                              
+Level: 0           Level: 0
+Score: 3           Score: 0
+-----------        -----------
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+IIII                          
+IIII     T         IIII       
+-----------        -----------
+Next:              Next:
+  TTT                 IIII    
+   T                          
+                              
+                              
+Level: 0           Level: 0
+Score: 3           Score: 0
+-----------        -----------
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+TTT                           
+ T                            
+IIII                          
+IIII     T         IIII       
+-----------        -----------
+Next:              Next:
+  J                   IIII    
+  JJJ                         
+                              
+                              
+Level: 0           Level: 0
+Score: 3           Score: 0
+-----------        -----------
+                              
+                              
+  ???????                     
+  ???????                     
+ S???????                     
+SS???????                     
+ZZ???????                     
+ Z???????                     
+  ???????                     
+LL???????                     
+ S???????                     
+SS???????                     
+J                             
+JJJ                           
+TTT                           
+ T                            
+IIII                          
+IIII *   T         IIII       
+-----------        -----------
+Next:              Next:
+  J                   IIII    
+  JJJ                         
+                              
+                              
+Level: 0           Level: 0
+Score: 3           Score: 0
+-----------        -----------
+                              
+                              
+  ???????                     
+  ???????            II       
+ S???????                     
+SS???????                     
+ZZ???????                     
+ Z???????                     
+  ???????                     
+LL???????                     
+ S???????          OO         
+SS???????          OO         
+J                  OO         
+JJJ                OO         
+TTT                OO         
+ T                 OO         
+IIII               IIII       
+IIII *   T         IIII       
+-----------        -----------
+Next:              Next:
+  J                   IIII    
+  JJJ                         
+                              
+                              

@@ -202,3 +202,11 @@ void Board::print_line(int line) {
         cout << grid[line][j];
     }
 }
+
+void Board::update_level(int new_level) {
+    level = new_level;
+}
+
+int Board::get_level() const {
+    return level;
+}

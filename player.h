@@ -8,6 +8,7 @@ class Player {
     protected:
         int level = 0;
         int score = 0;
+        shared_ptr<Block> next = nullptr;
     public:
         virtual ~Player() = 0;
         Player& operator=(const Player &other);
@@ -15,7 +16,6 @@ class Player {
         void drop(); //Drops block, returns number of rows cleared
 
         void print_line(int line);
-        void blind();
         
         void rotate(bool clockwise);
         void left();
@@ -23,13 +23,21 @@ class Player {
         void up();
         void down();
 
+        void blind();
+        void heavy();
+        void force(char block_type);
+
         virtual shared_ptr<Block> block_selector() = 0;
         virtual void add_extra(int rows_cleared);
         virtual void move_modifier();
 
+        void update_level(int new_level);
+
         // Accessors:
-        int get_level();
-        int get_score();
+        int get_level() const;
+        int get_score() const;
+        vector<pair<int,int>> get_next_coords() const;
+        char get_next_block_type() const;
 };
 
 #endif

@@ -31,7 +31,7 @@ int main() {
     // }
 
     // Game game{{Level1{}, Level2{}}};
-    // Game game;
+    Game game;
 }
 
 //This is purely for testing purposes - nowhere close to an actual harness
