@@ -16,17 +16,13 @@ Game::Game(string sequence1, string sequence2, bool TextOnly) {
         trie.insert(cmd_list[i]);
     }
 
-    // trie.insert("left");
-    // trie.insert("")
-
-Game::Game() {
-
-    // When running on text mode, don't run these
-    display = make_shared<GraphicsDisplay>();
-    player1->add_window(display);
-    player2->add_window(display);
-    player1->set_player_num(1);
-    player2->set_player_num(2);
+    if (TextOnly == false) {
+        // display = make_shared<GraphicsDisplay>();
+        // player1->add_window(display);
+        // player2->add_window(display);
+        // player1->set_player_num(1);
+        // player2->set_player_num(2);
+    }
 
 //     char c;
 //     while (cin >> c) {
