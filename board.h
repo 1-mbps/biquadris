@@ -11,12 +11,14 @@ using namespace std;
 // This is an abstract base class. As such, it has no constructor.
 // To instantiate a board, use the BasicBoard class.
 class Board {
-    protected:
+    friend class BasicBoard;
+    private:
         const int r = 18; //Number of rows
         const int c = 11; //Number of columns
         char grid[18][11];
         int num_blocks = 0;
         int player_num;
+        int level = 0;
         vector<shared_ptr<Block>> blocks;
         shared_ptr<GraphicsDisplay> display = nullptr;
 
@@ -59,6 +61,7 @@ class Board {
 
         virtual char get_point(int i, int j);
         bool is_full(int i);
+        int get_level() const;
         
         //In blind class, this is overridden to print question marks if not dropped yet
         virtual void print_line(int line);
@@ -67,6 +70,9 @@ class Board {
         void set_player_num(int n);
 
         void update_score(int s);
+
+        void update_level(int new_level);
+
 };
 
 #endif

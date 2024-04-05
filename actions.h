@@ -24,8 +24,10 @@ class Heavy: public Decorator {
 };
 
 class Force: public Decorator {
+    char block_type;
     public:
-        Force(shared_ptr<Board> b);
+        Force(shared_ptr<Board> b, char block_type);
+        void add(shared_ptr<Block> b) override;
 };
 
 #endif

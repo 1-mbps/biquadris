@@ -11,6 +11,7 @@ class Level0: public Player {
 };
 
 class Level1: public Player {
+    char selections[12] = {'S', 'Z', 'I', 'I', 'L', 'L', 'J', 'J', 'T', 'T', 'O', 'O'};
     public:
         Level1();
         Level1(const Player &p);
@@ -19,6 +20,7 @@ class Level1: public Player {
 };
 
 class Level2: public Player {
+    char selections[7] = {'I', 'L', 'J', 'O', 'T', 'Z', 'S'};
     public:
         Level2();
         Level2(const Player &p);
@@ -27,6 +29,7 @@ class Level2: public Player {
 };
 
 class Level3: public Player {
+    char selections[9] = {'S', 'S', 'Z', 'Z', 'I', 'L', 'J', 'O', 'T'};
     public:
         Level3();
         Level3(const Player &p);
@@ -36,6 +39,7 @@ class Level3: public Player {
 };
 
 class Level4: public Player {
+    char selections[9] = {'S', 'S', 'Z', 'Z', 'I', 'L', 'J', 'O', 'T'};
     int moves_since_last_clear = 0;
     public:
         Level4();

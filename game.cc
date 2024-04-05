@@ -3,27 +3,27 @@
 Game::Game() {
 
     // When running on text mode, don't run these
-    display = make_shared<GraphicsDisplay>();
-    player1->add_window(display);
-    player2->add_window(display);
-    player1->set_player_num(1);
-    player2->set_player_num(2);
+//     display = make_shared<GraphicsDisplay>();
+//     player1->add_window(display);
+//     player2->add_window(display);
+//     player1->set_player_num(1);
+//     player2->set_player_num(2);
 
-    player1->add();
+//     player1->add();
     // player1->drop();
     // player2->add();
     // player2->drop();
-    print_players();
+//     print_players();
 
-    char c;
-    while (cin >> c) {
-        if (c == 'r') player1->rotate(true);
-        if (c == 'd') player1->drop();
-        if (c == 'a') player1->add();
-        if (c == 'L') player1->left();
-        if (c == 'R') player1->right();
-        if (c == 'q') break;
-    }
+//     char c;
+//     while (cin >> c) {
+//         if (c == 'r') player1->rotate(true);
+//         if (c == 'd') player1->drop();
+//         if (c == 'a') player1->add();
+//         if (c == 'L') player1->left();
+//         if (c == 'R') player1->right();
+//         if (c == 'q') break;
+//     }
     // player1->add();
     // player1->right();
     // player1->right();
@@ -69,6 +69,20 @@ Game::Game() {
     // player2 = make_shared<Level0>(*player2);
     // player2->add();
     // print_players();
+    // On design document, write "fields are the same, so no need to overload copy assignment operator"
+//     player2 = make_shared<Level4>(*player2);
+//     player2->add();
+//     player2->drop();
+//     player2 = make_shared<Level0>(*player2);
+//     player2->add();
+//     player2->force('O');
+//     player2->add();
+//     player2->drop();
+//     player2->add();
+//     player2->drop();
+//     player2->add();
+//     player2->drop();
+//     print_players();
 
 }
 
@@ -82,7 +96,7 @@ int num_digits(int n) {
 }
 
 void Game::print_players() {
-    string space = "        ";
+    string space = "        "; //8 spaces
     cout << "Level: " << player1->get_level() << space+"   " << "Level: " << player2->get_level() << endl;
     cout << "Score: " << player1->get_score() << space;
     
@@ -98,29 +112,35 @@ void Game::print_players() {
         cout << endl;
     }
     cout << "-----------" << space << "-----------" << endl;
-    // notifyObservers();
+  
+    vector<pair<int,int>> p1_next_coords = player1->get_next_coords();
+    vector<pair<int,int>> p2_next_coords = player2->get_next_coords();
+    char c1 = player1->get_next_block_type();
+    char c2 = player2->get_next_block_type();
+    char nexts[4][30];
+
+    // cout << "got here!" << endl;
+
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 30; ++j) {
+            nexts[i][j] = ' ';
+        }
+    }
+
+    for (auto p : p1_next_coords) {
+        nexts[p.first][p.second+3] = c1;
+    }
+
+    for (auto p : p2_next_coords) {
+        nexts[p.first][p.second+22] = c2;
+    }
+
+    cout << "Next:" << "      "+space << "Next:" << endl;
+
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 30; ++j) {
+            cout << nexts[i][j];
+        }
+        cout << endl;
+    }
 }
-
-int Game::p1_level() {
-    return player1->get_level();
-}
-
-int Game::p2_level() {
-    return player2->get_level();
-}
-
-int Game::p1_score() {
-    return player1->get_score();
-}
-
-int Game::p2_score() {
-    return player2->get_score();
-}
-
-// void Game::attach(Observer *o) {
-//     observers.emplace_back();
-// }
-
-// void Game::notifyObservers() {
-//     for (auto ob : observers) ob->notify();
-// }

@@ -209,12 +209,11 @@ int Board::clear_row(int i) {
 }
 
 void Board::print_line(int line) {
-    // cout << "Level: 1" << endl;
-    // cout << "Score: 0" << endl;
     for (int j = 0; j < 11; ++j) {
         cout << grid[line][j];
     }
 }
+
 
 void Board::add_window(shared_ptr<GraphicsDisplay> window) {
     display = window;
@@ -226,4 +225,12 @@ void Board::set_player_num(int n) {
 
 void Board::update_score(int s) {
     display->update_score(s, player_num);
+}
+
+void Board::update_level(int new_level) {
+    level = new_level;
+}
+
+int Board::get_level() const {
+    return level;
 }
