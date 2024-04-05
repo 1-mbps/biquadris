@@ -5,7 +5,36 @@
 
 using namespace std;
 
-int main() {
+int main(int argc, char* argv[]) {
+
+    string sequence1 = "sequence1.txt";
+    string sequence2 = "sequence2.txt";
+
+    int startLevel = 0;
+    bool TextOnly = true;
+    int seed = 1;
+
+
+    if (argc > 1) {
+        for (int i = 1; i < argc; ++i) {
+            string input = argv[i];
+            if (input == "-text") {
+                TextOnly = false;
+            } else if (input == "-seed") {
+                seed = stoi(argv[i]);
+            } else if (input == "-scriptfile1") {
+                sequence1 = argv[i];
+            } else if (input == "-scriptfile2") {
+                sequence2 = argv[i];
+            } else if (input == "-startlevel") {
+                startLevel = stoi(argv[i]);
+            } else {
+                cerr << "Invalid Command Line Argument " << input << endl;
+            }
+        }
+    }
+
+// Game g(sequence1, sequence2, TextOnly);
 
     // string s = "left";
 
@@ -23,7 +52,12 @@ int main() {
     // cout << "wfefwewefewf - closest match: " << trie.return_closest_match("wfefew") << endl;
 
     // Game game{{Level1{}, Level2{}}};
-    Game game;
+    Game game{sequence1, sequence2, TextOnly};
+    string command;
+    // while (cin >> command) {
+    //     game.executeCommand(command);
+    // }
+    return 0;
 }
 
 //This is purely for testing purposes - nowhere close to an actual harness
