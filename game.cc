@@ -108,11 +108,39 @@ void Game::rotateCounterclockwise(int multiplier) {
    
 }
 
+void Game::special_action() {
+    cout << "Choose a special action [blind/heavy/force]: " << endl;
+    string s;
+    cin >> s;
+    while (s != "blind" && s != "heavy" && s != "force") {
+        cout << "Try again: ";
+        cin >> s;
+        cout << endl;
+    }
+    shared_ptr<Player> opponent;
+    if (currPlayer == player1) {
+        opponent = player2;
+    } else {
+        opponent = player1;
+    }
+    if (s == "blind") opponent->blind();
+    if (s == "heavy") opponent->heavy();
+    if (s == "force") {
+        cout << "Choose a block type: ";
+        char c;
+        if (c == 'I' || c == 'J' || c == 'L' || c == 'O' || c == 'T' || c == 'Z' || c == 'S') {
+            opponent->force(c);
+        }
+    }
+}
+
 void Game::dropBlock(int multiplier) {
-    currPlayer->drop();
+    int score = currPlayer->drop();
+    if (score >= 2) special_action();
     for (int i = 0; i < multiplier - 1; ++i) {
         currPlayer->add();
-        currPlayer->drop();
+        score = currPlayer->drop();
+        if (score >= 2) special_action();
     }
 }
 

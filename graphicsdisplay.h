@@ -20,7 +20,8 @@ class GraphicsDisplay {
     static const int ADD_WIDTH = BOARD_WIDTH + DIVIDER_WIDTH;
     static const int SIZE = BOARD_WIDTH/11;
     static const int BOARD_HEIGHT = SIZE*18;
-    static const int HEIGHT = (2*HEADBAR) + BOARD_HEIGHT + (5*SIZE); //Window height
+    static const int NEXT_HEIGHT = 5*SIZE;
+    static const int HEIGHT = (2*HEADBAR) + BOARD_HEIGHT + NEXT_HEIGHT; //Window height
     
     // <-- -->
     

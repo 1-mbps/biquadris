@@ -49,11 +49,7 @@ class Game {
         Game(string sequence1, string sequence2, bool TextOnly);
         ~Game();
 
-        //Accessors for Graphics Display
-        int p1_level();
-        int p2_level();
-        int p1_score();
-        int p2_score();
+        void special_action();
         
 };
 
