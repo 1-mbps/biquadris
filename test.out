@@ -1,154 +1,23 @@
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-IIII               IIII       
------------        -----------
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-IIII                          
-IIIIIIII           IIII       
------------        -----------
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-         T                    
-        TTT                   
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-TTT                           
- T                            
-IIII                          
-IIIIIIII           IIII       
------------        -----------
-Level: 0           Level: 0
-Score: 3           Score: 0
------------        -----------
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-TTT                           
- T                            
-IIII     T         IIII       
------------        -----------
-Level: 0           Level: 0
-Score: 3           Score: 0
------------        -----------
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-IIII                          
-TTT                           
- T                            
-IIII     T         IIII       
------------        -----------
-Level: 0           Level: 0
-Score: 3           Score: 0
------------        -----------
-                              
-                              
-  ???????                     
-  ???????                     
-  ???????                     
-OO???????                     
-OO???????                     
-J ???????                     
-JJ???????                     
-II???????                     
- S???????                     
-SS???????                     
-ZZ                            
- ZZ                           
-IIII                          
-TTT                           
- T                            
-IIII *   T         IIII       
------------        -----------
-Level: 0           Level: 0
-Score: 3           Score: 0
------------        -----------
-                              
-                              
-  ???????                     
-  ???????          IIII       
-  ???????                     
-OO???????                     
-OO???????                     
-J ???????                     
-JJ???????                     
-II???????                     
- S???????                     
-SS???????                     
-ZZ                            
- ZZ                           
-IIII                          
-TTT                TTT        
- T                  T         
-IIII *   T         IIII       
------------        -----------
+ri - closest match: right
+le - closest match: NOT FOUND
+lef - closest match: left
+left - closest match: left
+lev - closest match: NOT FOUND
+levelu - closest match: levelup
+ran - closest match: random
+levv - closest match: NOT FOUND
+levelup - closest match: levelup
+lefte - closest match: NOT FOUND
+wfefwewefewf - closest match: NOT FOUND
+left - closest match: left
+right - closest match: right
+down - closest match: down
+clockwise - closest match: clockwise
+counterclockwise - closest match: counterclockwise
+drop - closest match: drop
+levelup - closest match: levelup
+leveldown - closest match: leveldown
+norandom - closest match: norandom
+random - closest match: random
+sequence - closest match: sequence
+restart - closest match: restart
