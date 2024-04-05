@@ -10,12 +10,20 @@ class Game {
     shared_ptr<Player> player1 = make_shared<Level0>();
     shared_ptr<Player> player2 = make_shared<Level0>();
     vector<Player> levels;
+    shared_ptr<GraphicsDisplay> display = nullptr;
 
     void print_players();
 
     public:
         Game();
         ~Game();
+
+        //Accessors for Graphics Display
+        int p1_level();
+        int p2_level();
+        int p1_score();
+        int p2_score();
+        
 };
 
 #endif

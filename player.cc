@@ -32,6 +32,7 @@ void Player::drop() {
     int rows_cleared = drop_values.first;
     int points_gained = drop_values.second;
     score += pow((level+rows_cleared), 2) + points_gained;
+    board->update_score(score);
     add_extra(rows_cleared); //template method
 }
 
@@ -88,6 +89,16 @@ void Player::update_level(int new_level) {
 
 // Accessors:
 
+int Player::get_level() { return level; }
+int Player::get_score() { return score; }
+
+void Player::add_window(shared_ptr<GraphicsDisplay> display) {
+    board->add_window(display);
+}
+
+void Player::set_player_num(int n) {
+    player_num = n;
+  
 int Player::get_level() const { return level; }
 int Player::get_score() const { return score; }
 

@@ -6,6 +6,7 @@ class Player {
     friend class Level0;
     shared_ptr<Board> board = nullptr;
     protected:
+        int player_num;
         int level = 0;
         int score = 0;
         shared_ptr<Block> next = nullptr;
@@ -34,10 +35,15 @@ class Player {
         void update_level(int new_level);
 
         // Accessors:
+
         int get_level() const;
         int get_score() const;
+  
         vector<pair<int,int>> get_next_coords() const;
         char get_next_block_type() const;
+  
+        void set_player_num(int n);
+        void add_window(shared_ptr<GraphicsDisplay> display);
 };
 
 #endif

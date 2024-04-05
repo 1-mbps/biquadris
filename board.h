@@ -1,6 +1,7 @@
 #ifndef _BOARD_H_
 #define _BOARD_H_
 #include "block.h"
+#include "graphicsdisplay.h"
 #include <map>
 #include <vector>
 #include <memory>
@@ -16,8 +17,10 @@ class Board {
         const int c = 11; //Number of columns
         char grid[18][11];
         int num_blocks = 0;
+        int player_num;
         int level = 0;
         vector<shared_ptr<Block>> blocks;
+        shared_ptr<GraphicsDisplay> display = nullptr;
 
         //Called by one of the rotation/translation functions whenever a block is updated.
         bool update_grid(int inc_rotation_state, int inc_r, int inc_c);
@@ -63,7 +66,13 @@ class Board {
         //In blind class, this is overridden to print question marks if not dropped yet
         virtual void print_line(int line);
 
+        void add_window(shared_ptr<GraphicsDisplay> window);
+        void set_player_num(int n);
+
+        void update_score(int s);
+
         void update_level(int new_level);
+
 };
 
 #endif

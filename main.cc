@@ -2,6 +2,7 @@
 #include "trie.h"
 #include <iostream>
 #include <memory>
+#include "window.h"
 
 using namespace std;
 
@@ -31,7 +32,15 @@ int main() {
     // }
 
     // Game game{{Level1{}, Level2{}}};
+    // Xwindow w;
     Game game;
+
+   /*Game g;
+   char grid[11][18] = {""};
+   GraphicsDisplay graphics(g, grid);
+   g.attach(&graphics);
+    */
+   //idek man
 }
 
 //This is purely for testing purposes - nowhere close to an actual harness
