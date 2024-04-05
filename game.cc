@@ -72,8 +72,6 @@ Game::Game() {
 
 }
 
-// need to add notifyObservers after each action in the while loop
-
 Game::~Game() {
     levels.clear();
 }

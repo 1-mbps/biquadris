@@ -13,10 +13,11 @@ Board::~Board() {
 void Board::add(shared_ptr<Block> b) {
     blocks.emplace_back(b);
     ++num_blocks;
+    char c = b->get_block_type();
     for (auto p : b->get_coords(0)) {
-        grid[p.first+b->get_origin_r()][p.second+b->get_origin_c()] = b->get_block_type();
+        grid[p.first+b->get_origin_r()][p.second+b->get_origin_c()] = c;
+        if (display != nullptr) display->fill(p.first+b->get_origin_r(), p.second+b->get_origin_c(), c, player_num);
     }
-    if (display != nullptr) display->notify(grid, player_num);
 }
 
 pair<int,int> Board::drop() {
@@ -54,6 +55,7 @@ void Board::recalibrate_grid(int rows_cleared) {
     for (int i = 0; i < r; ++i) {
         for (int j = 0; j < c; ++j) {
             grid[i][j] = ' ';
+            if (display != nullptr) display->clear(i,j,player_num);
         }
     }
 
@@ -70,9 +72,10 @@ void Board::recalibrate_grid(int rows_cleared) {
 
         for (auto p : coords) {
             grid[p.first+origin_r][p.second+origin_c] = c;
+            if (display != nullptr) display->fill(p.first+origin_r,p.second+origin_c,c,player_num);
         }
     }
-    if (display != nullptr) display->notify(grid, player_num);
+    // if (display != nullptr) display->notify(grid, player_num);
 }
 
 // <--- Block movement --->
@@ -151,6 +154,7 @@ bool Board::update_grid(int inc_rotation_state, int inc_r, int inc_c) {
     //Clear the old coordinates - O(n)
     for (auto p : old_coords) {
         grid[p.first+origin_r][p.second+origin_c] = ' ';
+        if (display != nullptr) display->clear(p.first+origin_r, p.second+origin_c, player_num);
     }
 
     bool valid = true;
@@ -165,19 +169,25 @@ bool Board::update_grid(int inc_rotation_state, int inc_r, int inc_c) {
     if (valid) {
         // mark the new coordinates - O(n)
         for (auto p : new_coords) {
-            grid[p.first+origin_r+inc_r][p.second+origin_c+inc_c] = c;
+            int i = p.first+origin_r+inc_r;
+            int j = p.second+origin_c+inc_c;
+            grid[i][j] = c;
+            if (display != nullptr) display->fill(i,j,c,player_num);
         }
     } else {
         // restore the old coordinates - O(n)
         for (auto p : old_coords) {
-            grid[p.first+origin_r][p.second+origin_c] = c;
+            int i = p.first+origin_r;
+            int j = p.second+origin_c;
+            grid[i][j] = c;
+            if (display != nullptr) display->fill(i,j,c,player_num);
         }
         return false;
     }
 
     //Total running time: O(3n) = O(n)
 
-    if (display != nullptr) display->notify(grid, player_num);
+    // if (display != nullptr) display->notify(grid, player_num);
     return true;
 }
 

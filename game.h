@@ -24,10 +24,6 @@ class Game {
         int p1_score();
         int p2_score();
         
-        
-        //Observers for Graphics Display
-        // void attach(Observer *o);
-        // void notifyObservers(); 
 };
 
 #endif
