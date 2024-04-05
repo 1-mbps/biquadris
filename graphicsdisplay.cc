@@ -3,55 +3,46 @@
 using namespace std;
 
 GraphicsDisplay::GraphicsDisplay() {
-    w.fillRectangle(330, 0, 40, 630, Xwindow::Black);
+    w.fillRectangle(BOARD_WIDTH, 0, DIVIDER_WIDTH, HEIGHT-HEADBAR, Xwindow::Black);
+    char blocks[8] = {'I', 'J', 'L', 'O', 'S', 'Z', 'T', '*'};
+    for (int i = 0; i < 8; ++i) {
+        color_map[blocks[i]] = i+2;
+    }
 }
 
 GraphicsDisplay::~GraphicsDisplay(){
     
 }
 
-void GraphicsDisplay::notify(char (&grid)[18][11]) {
+void GraphicsDisplay::notify(char (&grid)[18][11], int player_num) {
+    // cout << "notified!" << endl;
+    int add_width = 0;
+    if (player_num == 2) add_width = BOARD_WIDTH+DIVIDER_WIDTH;
+    w.fillRectangle(add_width,HEADBAR,BOARD_WIDTH,HEIGHT-10,0);
     string msg;
     for (int i = 0; i < 21; ++i) {
         if (i == 0) {
-            // if (player == 1) {
-            //     msg = "Level:          ";
-            // } else {
-            //     msg = "Level:          ";
-            // }
-            // w.drawString(i*SIZE, HEADBAR, msg);
+            if (player_num == 1) {
+                msg = "Level:          ";
+            } else {
+                msg = "Level:          ";
+            }
+            w.drawString(i*SIZE, HEADBAR, msg);
         } else if (i == 1) {
-            // if (player == 1) {
-            //     msg = "Score:          ";
-            // } else {
-            //     msg = "Score:          ";
-            // }
-            // w.drawString(i*SIZE, HEADBAR, msg);
+            if (player_num == 1) {
+                msg = "Score:          ";
+            } else {
+                msg = "Score:          ";
+            }
+            w.drawString(i*SIZE, HEADBAR, msg);
         } else if(i == 2) {
-            // msg = "-------------------------------";
-            // w.drawString(i*SIZE, HEADBAR, msg);
+            msg = "-------------------------------";
+            w.drawString(i*SIZE, HEADBAR, msg);
         } else {
             for (int j = 0; j < 11; ++j) {
-                if(grid[i-3][j] == 'I') {
-                    w.fillRectangle(i*SIZE, j*SIZE+HEADBAR, SIZE, SIZE, 0);
-                }
-                if(grid[i-3][j] == 'J') {
-                    w.fillRectangle(i*SIZE, j*SIZE+HEADBAR, SIZE, SIZE, 1);
-                }   
-                if(grid[i-3][j] == 'L') {
-                    w.fillRectangle(i*SIZE, j*SIZE+HEADBAR, SIZE, SIZE, 2);
-                }
-                if(grid[i-3][j] == 'O') {
-                    w.fillRectangle(i*SIZE, j*SIZE+HEADBAR, SIZE, SIZE, 3);
-                }
-                if(grid[i-3][j] == 'S') {
-                    w.fillRectangle(i*SIZE, j*SIZE+HEADBAR, SIZE, SIZE, 4);
-                }
-                if(grid[i-3][j] == 'Z') {
-                    w.fillRectangle(i*SIZE, j*SIZE+HEADBAR, SIZE, SIZE, 5);
-                }
-                if(grid[i-3][j] == 'T') {
-                    w.fillRectangle(i*SIZE, j*SIZE+HEADBAR, SIZE, SIZE, 6);
+                if (grid[i-3][j] != ' ') {
+                    // cout << "Colour: " << color_map[grid[i-3][j]] << endl;
+                    w.fillRectangle(j*SIZE, (i*SIZE) + HEADBAR, SIZE, SIZE, color_map[grid[i-3][j]]);
                 }
             }
         }

@@ -6,6 +6,7 @@ class Player {
     friend class Level0;
     shared_ptr<Board> board = nullptr;
     protected:
+        int player_num;
         int level = 0;
         int score = 0;
     public:
@@ -31,6 +32,7 @@ class Player {
         int get_level();
         int get_score();
 
+        void set_player_num(int n);
         void add_window(shared_ptr<GraphicsDisplay> display);
 };
 

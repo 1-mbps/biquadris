@@ -1,4 +1,5 @@
 #include "block.h"
+#include "window.h"
 #include <iostream>
 #include <map>
 

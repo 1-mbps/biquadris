@@ -1,19 +1,29 @@
 #include "game.h"
-#include "levels.h"
 
 Game::Game() {
 
+    // When running on text mode, don't run these
+    display = make_shared<GraphicsDisplay>();
     player1->add_window(display);
     player2->add_window(display);
+    player1->set_player_num(1);
+    player2->set_player_num(2);
 
     player1->add();
-    player1->drop();
+    // player1->drop();
     // player2->add();
     // player2->drop();
     print_players();
 
     char c;
-    cin >> c;
+    while (cin >> c) {
+        if (c == 'r') player1->rotate(true);
+        if (c == 'd') player1->drop();
+        if (c == 'a') player1->add();
+        if (c == 'L') player1->left();
+        if (c == 'R') player1->right();
+        if (c == 'q') break;
+    }
     // player1->add();
     // player1->right();
     // player1->right();

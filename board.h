@@ -16,8 +16,9 @@ class Board {
         const int c = 11; //Number of columns
         char grid[18][11];
         int num_blocks = 0;
+        int player_num;
         vector<shared_ptr<Block>> blocks;
-        shared_ptr<GraphicsDisplay> display;
+        shared_ptr<GraphicsDisplay> display = nullptr;
 
         //Called by one of the rotation/translation functions whenever a block is updated.
         bool update_grid(int inc_rotation_state, int inc_r, int inc_c);
@@ -63,6 +64,7 @@ class Board {
         virtual void print_line(int line);
 
         void add_window(shared_ptr<GraphicsDisplay> window);
+        void set_player_num(int n);
 };
 
 #endif

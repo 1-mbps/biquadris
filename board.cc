@@ -16,7 +16,7 @@ void Board::add(shared_ptr<Block> b) {
     for (auto p : b->get_coords(0)) {
         grid[p.first+b->get_origin_r()][p.second+b->get_origin_c()] = b->get_block_type();
     }
-    display->notify(grid);
+    if (display != nullptr) display->notify(grid, player_num);
 }
 
 pair<int,int> Board::drop() {
@@ -72,7 +72,7 @@ void Board::recalibrate_grid(int rows_cleared) {
             grid[p.first+origin_r][p.second+origin_c] = c;
         }
     }
-    display->notify(grid);
+    if (display != nullptr) display->notify(grid, player_num);
 }
 
 // <--- Block movement --->
@@ -176,7 +176,8 @@ bool Board::update_grid(int inc_rotation_state, int inc_r, int inc_c) {
     }
 
     //Total running time: O(3n) = O(n)
-    display->notify(grid);
+
+    if (display != nullptr) display->notify(grid, player_num);
     return true;
 }
 
@@ -207,6 +208,10 @@ void Board::print_line(int line) {
 
 void Board::add_window(shared_ptr<GraphicsDisplay> window) {
     display = window;
+}
+
+void Board::set_player_num(int n) {
+    player_num = n;
 }
 
 // void Board::attach(Observer *o) {

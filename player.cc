@@ -75,3 +75,7 @@ int Player::get_score() { return score; }
 void Player::add_window(shared_ptr<GraphicsDisplay> display) {
     board->add_window(display);
 }
+
+void Player::set_player_num(int n) {
+    player_num = n;
+}
