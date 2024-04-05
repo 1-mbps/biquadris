@@ -16,13 +16,18 @@ Game::Game(string sequence1, string sequence2, bool TextOnly) {
         trie.insert(cmd_list[i]);
     }
 
+    player1->set_player_num(1);
+    player2->set_player_num(2);
+
     if (TextOnly == false) {
-        // display = make_shared<GraphicsDisplay>();
-        // player1->add_window(display);
-        // player2->add_window(display);
-        // player1->set_player_num(1);
-        // player2->set_player_num(2);
+        display = make_shared<GraphicsDisplay>();
+        player1->add_window(display);
+        player2->add_window(display);
     }
+
+    player1->add();
+    player2->add();
+    print_players();
 
 //     char c;
 //     while (cin >> c) {
@@ -38,67 +43,6 @@ Game::Game(string sequence1, string sequence2, bool TextOnly) {
 //         if (c == 'c') player1->clear_effects();
 //         if (c == 'q') break;
 //     }
-
-    // print_players();
-    // player1->add();
-    // player1->right();
-    // player1->right();
-    // player1->right();
-    // player1->right();
-    // player1->drop();
-    // player1->add();
-    // player1->drop();
-    // print_players();
-    // player1 = make_shared<Level1>(*player1);
-    // player1->add();
-    // player1->drop();
-    // player1->add();
-    // player1->rotate(true);
-    // player1->rotate(true);
-    // for (int i = 0; i < 15; ++i) player1->right();
-    // print_players();
-    // player1->drop();
-    // print_players();
-    // player1 = make_shared<Level4>(*player1);
-    // player1->add();
-    // player1->drop();
-    // print_players();
-
-    // //Add 5 blocks
-    // player1->add();
-    // player1->drop();
-    // player1->add();
-    // player1->drop();
-    // player1->add();
-    // player1->drop();
-    // player1->add();
-    // player1->drop();
-    // player1->add();
-    // player1->drop();
-    // player1->blind();
-
-    // print_players();
-    
-    // player2 = make_shared<Level4>(*player2);
-    // player2->add();
-    // player2->drop();
-    // player2 = make_shared<Level0>(*player2);
-    // player2->add();
-    // print_players();
-    // On design document, write "fields are the same, so no need to overload copy assignment operator"
-//     player2 = make_shared<Level4>(*player2);
-//     player2->add();
-//     player2->drop();
-//     player2 = make_shared<Level0>(*player2);
-//     player2->add();
-//     player2->force('O');
-//     player2->add();
-//     player2->drop();
-//     player2->add();
-//     player2->drop();
-//     player2->add();
-//     player2->drop();
-//     print_players();
 
 }
 
@@ -260,7 +204,6 @@ void Game::executeCommand(string &cmd) {
     //get Multiplier
     int multiplier = getMultiplier(cmd);
     string getCommand = trie.return_closest_match(cmd);
-    cout << getCommand;
 
     int isNotFound = getCommand.compare("NOTFOUND");
     if (isNotFound == 0) {
@@ -285,6 +228,7 @@ void Game::executeCommand(string &cmd) {
         } else {
             currPlayer = player1;
         }
+        currPlayer->add();
     } else if (getCommand == "levelup") {
         levelUp(multiplier);
     } else if (getCommand == "leveldown") {
@@ -292,6 +236,7 @@ void Game::executeCommand(string &cmd) {
     } //else if (getCommand == "sequence") {
        // sequenceCommand("sequence.txt"); // Assuming the file name for sequence command
     //} // Add more else-if clauses for other commands
+    print_players();
 }
 
 int num_digits(int n) {

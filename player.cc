@@ -112,6 +112,7 @@ void Player::add_window(shared_ptr<GraphicsDisplay> display) {
 
 void Player::set_player_num(int n) {
     player_num = n;
+    board->set_player_num(n);
 }
   
 int Player::get_level() const { return level; }

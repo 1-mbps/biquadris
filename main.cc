@@ -12,15 +12,14 @@ int main(int argc, char* argv[]) {
     string sequence2 = "sequence2.txt";
 
     int startLevel = 0;
-    bool TextOnly = true;
+    bool TextOnly = false;
     int seed = 1;
-
 
     if (argc > 1) {
         for (int i = 1; i < argc; ++i) {
             string input = argv[i];
             if (input == "-text") {
-                TextOnly = false;
+                TextOnly = true;
             } else if (input == "-seed") {
                 seed = stoi(argv[i+1]);
                 ++i;
@@ -68,6 +67,7 @@ int main(int argc, char* argv[]) {
     Game game{sequence1, sequence2, TextOnly};
     string command;
     while (cin >> command) {
+        if (command == "quit") break;
         game.executeCommand(command);
     }
     return 0;
