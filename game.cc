@@ -26,7 +26,6 @@ Game::Game(string sequence1, string sequence2, int start_level, bool TextOnly) {
     }
 
     player1->add();
-    player2->add();
     print_players();
 
 }
