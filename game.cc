@@ -176,32 +176,36 @@ void Game::levelUp(int multiplier) {
 void Game::levelDownByOne() {
     int currLevel = currPlayer->get_level();
     if (currLevel == 2) {
-        currPlayer = make_shared<Level1>(*currPlayer);
         if (currPlayer == player1) {
             player1 = make_shared<Level1>(*currPlayer);
+            currPlayer = player1;
         } else {
             player2 = make_shared<Level1>(*currPlayer);
+            currPlayer = player2;
         }
     } else if (currLevel == 3) {
-        currPlayer = make_shared<Level2>(*currPlayer);
         if (currPlayer == player1) {
             player1 = make_shared<Level2>(*currPlayer);
+            currPlayer = player1;
         } else {
             player2 = make_shared<Level2>(*currPlayer);
+            currPlayer = player2;
         }
     } else if (currLevel == 4) {
-        currPlayer = make_shared<Level3>(*currPlayer);
         if (currPlayer == player1) {
-            player1 = make_shared<Level3>(*currPlayer);
+            player1 = make_shared<Level3>(*player1);
+            currPlayer = player1;
         } else {
             player2 = make_shared<Level3>(*currPlayer);
+            currPlayer = player2;
         }
     } else if (currLevel == 1) {
-        currPlayer = make_shared<Level0>(*currPlayer);
         if (currPlayer == player1) {
-            player1 = make_shared<Level0>(*currPlayer);
+            player1 = make_shared<Level0>(*player1);
+            currPlayer = player1;
         } else {
             player2 = make_shared<Level0>(*currPlayer);
+            currPlayer = player2;
         }
     }
 }
@@ -268,7 +272,7 @@ void Game::executeCommand(string &cmd) {
             levelUp(multiplier);
         } else if (getCommand == "leveldown") {
             levelDown(multiplier);
-        } 
+        }
         //else if (getCommand == "sequence") {
         // sequenceCommand("sequence.txt"); // Assuming the file name for sequence command
         //} // Add more else-if clauses for other commands

@@ -60,6 +60,33 @@ Score: 0           Score: 0
                               
                               
                               
+                   IIII       
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+IIII                          
+-----------        -----------
+Next:              Next:
+  J                  J        
+  JJJ                JJJ      
+                              
+                              
+Level: 0           Level: 0
+Score: 0           Score: 0
+-----------        -----------
+                              
+                              
+                              
 J                             
 JJJ                           
                               
@@ -87,8 +114,8 @@ Score: 0           Score: 0
                               
                               
                               
-     J                        
-     JJJ                      
+J                             
+JJJ                           
                               
                               
                               
@@ -126,36 +153,9 @@ Score: 0           Score: 0
                               
                               
                               
-                              
-     J                        
-IIII JJJ           IIII       
------------        -----------
-Next:              Next:
-    L                  L      
-  LLL                LLL      
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-                   J          
-                   JJJ        
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-     J                        
-IIII JJJ           IIII       
+J                             
+JJJ                           
+IIII               IIII       
 -----------        -----------
 Next:              Next:
     L                  L      
@@ -180,13 +180,40 @@ LLL
                               
                               
                               
-                   J          
-     J             JJJ        
-IIII JJJ           IIII       
+J                  J          
+JJJ                JJJ        
+IIII               IIII       
 -----------        -----------
 Next:              Next:
-  OO                   L      
-  OO                 LLL      
+   SS                  L      
+  SS                 LLL      
+                              
+                              
+Level: 0           Level: 0
+Score: 0           Score: 0
+-----------        -----------
+                              
+                              
+                              
+  L                           
+LLL                           
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+J                  J          
+JJJ                JJJ        
+IIII               IIII       
+-----------        -----------
+Next:              Next:
+   SS                  L      
+  SS                 LLL      
                               
                               
 Level: 0           Level: 0
@@ -205,15 +232,15 @@ Score: 0           Score: 0
                               
                               
                               
-                              
-                              
-  L                J          
-LLL  J             JJJ        
-IIII JJJ           IIII       
+  L                           
+LLL                           
+J                  J          
+JJJ                JJJ        
+IIII               IIII       
 -----------        -----------
 Next:              Next:
-  OO                 J        
-  OO                 JJJ      
+   SS                 IIII    
+  SS                          
                               
                               
 Level: 0           Level: 0
@@ -222,8 +249,8 @@ Score: 0           Score: 0
                               
                               
                               
-                           L  
-                         LLL  
+                     L        
+                   LLL        
                               
                               
                               
@@ -232,15 +259,15 @@ Score: 0           Score: 0
                               
                               
                               
-                              
-                              
-  L                J          
-LLL  J             JJJ        
-IIII JJJ           IIII       
+  L                           
+LLL                           
+J                  J          
+JJJ                JJJ        
+IIII               IIII       
 -----------        -----------
 Next:              Next:
-  OO                 J        
-  OO                 JJJ      
+   SS                 IIII    
+  SS                          
                               
                               
 Level: 0           Level: 0
@@ -249,8 +276,8 @@ Score: 0           Score: 0
                               
                               
                               
-OO                            
-OO                            
+ SS                           
+SS                            
                               
                               
                               
@@ -259,15 +286,15 @@ OO
                               
                               
                               
-                              
-                              
-  L                J          
-LLL  J             JJJ     L  
-IIII JJJ           IIII  LLL  
+  L                  L        
+LLL                LLL        
+J                  J          
+JJJ                JJJ        
+IIII               IIII       
 -----------        -----------
 Next:              Next:
-   SS                J        
-  SS                 JJJ      
+  TTT                 IIII    
+   T                          
                               
                               
 Level: 0           Level: 0
@@ -276,8 +303,7 @@ Score: 0           Score: 0
                               
                               
                               
-                   J          
-                   JJJ        
+                   IIII       
                               
                               
                               
@@ -286,14 +312,15 @@ Score: 0           Score: 0
                               
                               
                               
-                              
-OO                            
-OOL                J          
-LLL  J             JJJ     L  
-IIII JJJ           IIII  LLL  
+ SS                           
+SSL                  L        
+LLL                LLL        
+J                  J          
+JJJ                JJJ        
+IIII               IIII       
 -----------        -----------
 Next:              Next:
-   SS                J        
-  SS                 JJJ      
+  TTT                 SS      
+   T                 SS       
                               
                               
