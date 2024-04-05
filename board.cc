@@ -224,7 +224,7 @@ void Board::set_player_num(int n) {
 }
 
 void Board::update_score(int s) {
-    display->update_score(s, player_num);
+    if (display != nullptr) display->update_score(s, player_num);
 }
 
 void Board::update_level(int new_level) {
@@ -233,4 +233,20 @@ void Board::update_level(int new_level) {
 
 int Board::get_level() const {
     return level;
+}
+
+bool Board::is_board() const { return true; }
+
+shared_ptr<Board> Board::get_parent() { return nullptr; }
+
+void Board::blind() {
+    if (display != nullptr) display->blind();
+}
+
+void Board::unblind() {
+    if (display != nullptr) display->unblind();
+}
+
+void Board::display_next(shared_ptr<Block> next) {
+    if (display != nullptr) display->display_next(next->get_coords(0), next->get_block_type(), player_num);
 }

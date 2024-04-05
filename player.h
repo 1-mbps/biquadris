@@ -5,6 +5,7 @@
 class Player {
     friend class Level0;
     shared_ptr<Board> board = nullptr;
+    int num_effects = 0;
     protected:
         int player_num;
         int level = 0;
@@ -27,6 +28,7 @@ class Player {
         void blind();
         void heavy();
         void force(char block_type);
+        void clear_effects();
 
         virtual shared_ptr<Block> block_selector() = 0;
         virtual void add_extra(int rows_cleared);

@@ -25,6 +25,7 @@ void Player::add(shared_ptr<Block> b) {
     if (b == nullptr) b = next;
     board->add(b);
     next = block_selector();
+    board->display_next(next);
 }
 
 void Player::drop() {
@@ -33,19 +34,30 @@ void Player::drop() {
     int points_gained = drop_values.second;
     score += pow((level+rows_cleared), 2) + points_gained;
     board->update_score(score);
+    board->unblind();
     add_extra(rows_cleared); //template method
 }
 
 void Player::blind() {
     board = make_shared<Blind>(board);
+    board->blind();
+    ++num_effects;
 }
 
 void Player::heavy() {
     board = make_shared<Heavy>(board);
+    ++num_effects;
 }
 
 void Player::force(char block_type) {
     board = make_shared<Force>(board, block_type);
+    ++num_effects;
+}
+
+// Requires: effects have been placed
+void Player::clear_effects() {
+    board = board->get_parent();
+    if (board == nullptr) cout << "you suck nigga" << endl;
 }
 
 //In force, override board::add() - delete b and replace it
@@ -89,15 +101,13 @@ void Player::update_level(int new_level) {
 
 // Accessors:
 
-int Player::get_level() { return level; }
-int Player::get_score() { return score; }
-
 void Player::add_window(shared_ptr<GraphicsDisplay> display) {
     board->add_window(display);
 }
 
 void Player::set_player_num(int n) {
     player_num = n;
+}
   
 int Player::get_level() const { return level; }
 int Player::get_score() const { return score; }

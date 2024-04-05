@@ -51,6 +51,9 @@ class Board {
         virtual pair<int,int> drop();
         //In blind class, override this to remove question marks
 
+        //This removes all effects on the board by removing decorators
+        virtual shared_ptr<Board> get_parent();
+
         //Rotate the block currently being edited.
         virtual bool rotate(bool clockwise);
 
@@ -72,6 +75,13 @@ class Board {
         void update_score(int s);
 
         void update_level(int new_level);
+
+        virtual bool is_board() const;
+
+        virtual void blind();
+        virtual void unblind();
+
+        void display_next(shared_ptr<Block> next);
 
 };
 

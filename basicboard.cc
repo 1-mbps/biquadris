@@ -6,6 +6,4 @@ BasicBoard::BasicBoard() {
     }
 }
 
-BasicBoard::~BasicBoard() {
-    
-}
+BasicBoard::~BasicBoard() {}
