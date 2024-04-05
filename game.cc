@@ -11,10 +11,9 @@ using namespace std;
 
 Game::Game(string sequence1, string sequence2, bool TextOnly) {
     string cmd_list[] = {"left", "right", "down", "clockwise", "counterclockwise", 
-    "drop", "levelup", "leveldown", "norandom", "random", "sequence", "I", "J",
-     "L", "O", "S", "T", "Z", "restart"};
+    "drop", "levelup", "leveldown", "norandom", "random", "sequence", "restart"};
 
-    int cmd_list_length = 19;
+    int cmd_list_length = 12;
     for (int i = 0; i < cmd_list_length; ++i) {
         // cout << cmd_list[i] << endl;
         trie.insert(cmd_list[i]);

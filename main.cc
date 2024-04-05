@@ -21,13 +21,17 @@ int main(int argc, char* argv[]) {
             if (input == "-text") {
                 TextOnly = false;
             } else if (input == "-seed") {
-                seed = stoi(argv[i]);
+                seed = stoi(argv[i+1]);
+                ++i;
             } else if (input == "-scriptfile1") {
-                sequence1 = argv[i];
+                sequence1 = argv[i+1];
+                ++i;
             } else if (input == "-scriptfile2") {
-                sequence2 = argv[i];
+                sequence2 = argv[i+1];
+                ++i;
             } else if (input == "-startlevel") {
-                startLevel = stoi(argv[i]);
+                startLevel = stoi(argv[i+1]);
+                ++i;
             } else {
                 cerr << "Invalid Command Line Argument " << input << endl;
             }
@@ -54,9 +58,9 @@ int main(int argc, char* argv[]) {
     // Game game{{Level1{}, Level2{}}};
     Game game{sequence1, sequence2, TextOnly};
     string command;
-    // while (cin >> command) {
-    //     game.executeCommand(command);
-    // }
+    while (cin >> command) {
+        game.executeCommand(command);
+    }
     return 0;
 }
 
