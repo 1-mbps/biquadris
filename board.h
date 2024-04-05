@@ -82,7 +82,8 @@ class Board {
         virtual void unblind();
 
         void display_next(shared_ptr<Block> next);
-        void replace_block(shared_ptr<Block> b);
+        void pop_last_block();
+        void replace_block(shared_ptr<Block> b); //Removes the most recent block from the board.
 
 };
 

@@ -251,7 +251,7 @@ void Board::display_next(shared_ptr<Block> next) {
     if (display != nullptr) display->display_next(next->get_coords(0), next->get_block_type(), player_num);
 }
 
-void Board::replace_block(shared_ptr<Block> b) {
+void Board::pop_last_block() {
     if (num_blocks > 0) {
         int origin_r = blocks[num_blocks-1]->get_origin_r();
         int origin_c = blocks[num_blocks-1]->get_origin_c();
@@ -262,5 +262,9 @@ void Board::replace_block(shared_ptr<Block> b) {
         blocks.pop_back();
         --num_blocks;
     }
+}
+
+void Board::replace_block(shared_ptr<Block> b) {
+    pop_last_block();
     add(b);
 }
