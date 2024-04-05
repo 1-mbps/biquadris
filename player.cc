@@ -28,7 +28,7 @@ void Player::add(shared_ptr<Block> b) {
     board->display_next(next);
 }
 
-void Player::drop() {
+int Player::drop() {
     pair<int,int> drop_values = board->drop(); //board->drop() returns number of rows cleared
     int rows_cleared = drop_values.first;
     int points_gained = drop_values.second;
@@ -36,6 +36,7 @@ void Player::drop() {
     board->update_score(score);
     board->unblind();
     add_extra(rows_cleared); //template method
+    return rows_cleared;
 }
 
 void Player::blind() {
@@ -57,7 +58,6 @@ void Player::force(char block_type) {
 // Requires: effects have been placed
 void Player::clear_effects() {
     board = board->get_parent();
-    if (board == nullptr) cout << "you suck nigga" << endl;
 }
 
 //In force, override board::add() - delete b and replace it

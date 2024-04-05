@@ -75,7 +75,6 @@ void GraphicsDisplay::unblind() {
 void GraphicsDisplay::display_next(vector<pair<int,int>> coords, char c, int player_num) {
     int add_width = (player_num == 2)*ADD_WIDTH;
     for (auto p : coords) {
-        cout << p.first << " " << p.second << endl;
         w.fillRectangle(20+(p.second*SIZE)+add_width, HEADBAR+BOARD_HEIGHT+40+((p.first+1)*SIZE), SIZE, SIZE, color_map[c]);
     }
 }

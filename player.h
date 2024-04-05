@@ -15,7 +15,7 @@ class Player {
         virtual ~Player() = 0;
         Player& operator=(const Player &other);
         void add(shared_ptr<Block> b = nullptr);
-        void drop(); //Drops block, returns number of rows cleared
+        int drop(); //Drops block, returns number of rows cleared
 
         void print_line(int line);
         
