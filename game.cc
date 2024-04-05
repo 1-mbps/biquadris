@@ -196,6 +196,15 @@ void Game::levelDown(int multiplier) {
     }
 }
 
+void Game::replacingBlock(char c) {
+    char c_list[] = {"I", "J", "L", "O", "S", "T", "Z"};
+    for (int i = 0; i < 7; ++i) {
+        if (c == c_list[i]) {
+            currPlayer->replace_block(c);
+        }
+    }
+}
+
 // void Game::sequenceCommand(const string &filename) {
 
 // }
