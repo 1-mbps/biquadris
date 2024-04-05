@@ -40,7 +40,7 @@ class Game {
         void levelUp(int multiplier);
         void levelDownByOne();
         void levelDown(int multiplier);
-        void replacingBlock(char c);
+        bool replacingBlock(const char c);
         //void sequenceCommand(const string &filename);
         // void noRandom(const string& filename);
         // void random();

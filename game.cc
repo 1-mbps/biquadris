@@ -128,6 +128,7 @@ void Game::special_action() {
     if (s == "force") {
         cout << "Choose a block type: ";
         char c;
+        cin >> c;
         if (c == 'I' || c == 'J' || c == 'L' || c == 'O' || c == 'T' || c == 'Z' || c == 'S') {
             opponent->force(c);
         }
@@ -224,13 +225,15 @@ void Game::levelDown(int multiplier) {
     }
 }
 
-void Game::replacingBlock(char c) {
-    char c_list[] = {"I", "J", "L", "O", "S", "T", "Z"};
+bool Game::replacingBlock(const char c) {
+    char c_list[] = {'I', 'J', 'L', 'O', 'S', 'T', 'Z'};
     for (int i = 0; i < 7; ++i) {
         if (c == c_list[i]) {
             currPlayer->replace_block(c);
+            return true;
         }
     }
+    return false;
 }
 
 // void Game::sequenceCommand(const string &filename) {
@@ -239,41 +242,51 @@ void Game::replacingBlock(char c) {
 
 void Game::executeCommand(string &cmd) {
     //get Multiplier
-    int multiplier = getMultiplier(cmd);
-    string getCommand = trie.return_closest_match(cmd);
 
-    int isNotFound = getCommand.compare("NOTFOUND");
-    if (isNotFound == 0) {
-        return;
-    } 
+    bool passed = false;
+    if (cmd.length() == 1) {
+        passed = replacingBlock(cmd[0]);
+    }
 
-    if (getCommand == "left") {
-        moveLeft(multiplier);
-    } else if (getCommand == "right") {
-        moveRight(multiplier);
-    } else if (getCommand == "down") {
-        moveDown(multiplier);
-    } else if (getCommand == "clockwise") {
-        rotateClockwise(multiplier);
-    } else if (getCommand == "counterclockwise") {
-        rotateCounterclockwise(multiplier);
-    } else if (getCommand == "drop") {
-        dropBlock(multiplier);
-        // Toggle current player
-        if (currPlayer == player1) {
-            currPlayer = player2;
-        } else {
-            currPlayer = player1;
-        }
-        currPlayer->add();
-    } else if (getCommand == "levelup") {
-        levelUp(multiplier);
-    } else if (getCommand == "leveldown") {
-        levelDown(multiplier);
-    } //else if (getCommand == "sequence") {
-       // sequenceCommand("sequence.txt"); // Assuming the file name for sequence command
-    //} // Add more else-if clauses for other commands
-    print_players();
+    if (passed == false) {
+        int multiplier = getMultiplier(cmd);
+        string getCommand = trie.return_closest_match(cmd);
+
+        int isNotFound = getCommand.compare("NOTFOUND");
+        if (isNotFound == 0) {
+            return;
+        } 
+
+        if (getCommand == "left") {
+            moveLeft(multiplier);
+        } else if (getCommand == "right") {
+            moveRight(multiplier);
+        } else if (getCommand == "down") {
+            moveDown(multiplier);
+        } else if (getCommand == "clockwise") {
+            rotateClockwise(multiplier);
+        } else if (getCommand == "counterclockwise") {
+            rotateCounterclockwise(multiplier);
+        } else if (getCommand == "drop") {
+            dropBlock(multiplier);
+            // Toggle current player
+            if (currPlayer == player1) {
+                currPlayer = player2;
+            } else {
+                currPlayer = player1;
+            }
+            currPlayer->add();
+        } else if (getCommand == "levelup") {
+            levelUp(multiplier);
+        } else if (getCommand == "leveldown") {
+            levelDown(multiplier);
+        } 
+        //else if (getCommand == "sequence") {
+        // sequenceCommand("sequence.txt"); // Assuming the file name for sequence command
+        //} // Add more else-if clauses for other commands
+        print_players();
+    }
+
 }
 
 int num_digits(int n) {
