@@ -11,9 +11,10 @@ Player& Player::operator=(const Player& other) {
 }
 
 void Player::add(shared_ptr<Block> b) {
-    if (b == nullptr) b = block_selector();
+    if (b == nullptr) b = next;
     // cout << "selected block " << b->get_block_type() << endl;
     board->add(b);
+    next = block_selector();
 }
 
 // int return is useful for Level 4

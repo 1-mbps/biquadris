@@ -9,6 +9,7 @@ class Player {
         int player_num;
         int level = 0;
         int score = 0;
+        shared_ptr<Block> next = block_selector();
     public:
         virtual ~Player() = 0;
         Player& operator=(const Player &other);

@@ -225,5 +225,5 @@ void Board::set_player_num(int n) {
 }
 
 void Board::update_score(int s) {
-    display->update_score(s);
+    display->update_score(s, player_num);
 }
