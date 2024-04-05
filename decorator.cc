@@ -11,8 +11,21 @@ pair<int,int> Decorator::drop() {
     return component->drop();
 }
 
+shared_ptr<Board> Decorator::get_parent() {
+    if (component->is_board()) return component;
+    return component->get_parent();
+}
+
+bool Decorator::is_board() const {
+    return false;
+}
+
 bool Decorator::rotate(bool clockwise) {
     return component->rotate(clockwise);
+}
+
+void Decorator::add(shared_ptr<Block> b) {
+    component->add(b);
 }
 
 bool Decorator::up() {
@@ -37,4 +50,12 @@ void Decorator::print_line(int line) {
 
 char Decorator::get_point(int i, int j) {
     return component->get_point(i,j);
+}
+
+void Decorator::blind() {
+    component->blind();
+}
+
+void Decorator::unblind() {
+    component->unblind();
 }

@@ -69,6 +69,11 @@ bool Heavy::right() {
 
 // <----- FORCE ----->
 
-Force::Force(shared_ptr<Board> b): Decorator{b} {}
+Force::Force(shared_ptr<Board> b, char block_type): Decorator{b}, block_type{block_type} {}
+
+void Force::add(shared_ptr<Block> b) {
+    shared_ptr<Block> forced_block = make_shared<Block>(block_type, component->get_level());
+    component->add(forced_block);
+}
 
 // <-----  ----->

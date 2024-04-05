@@ -4,8 +4,6 @@
 #include <stdlib.h>
 
 #include "game.h"
-//#include "levels.h"
-//#include "player.h"
 
 using namespace std;
 
@@ -15,16 +13,36 @@ Game::Game(string sequence1, string sequence2, bool TextOnly) {
 
     int cmd_list_length = 12;
     for (int i = 0; i < cmd_list_length; ++i) {
-        // cout << cmd_list[i] << endl;
         trie.insert(cmd_list[i]);
     }
 
     // trie.insert("left");
     // trie.insert("")
-    // player1->add();
-    // player1->drop();
-    // player2->add();
-    // player2->drop();
+
+Game::Game() {
+
+    // When running on text mode, don't run these
+    display = make_shared<GraphicsDisplay>();
+    player1->add_window(display);
+    player2->add_window(display);
+    player1->set_player_num(1);
+    player2->set_player_num(2);
+
+//     char c;
+//     while (cin >> c) {
+//         if (c == 'r') player1->rotate(true);
+//         if (c == 'd') player1->drop();
+//         if (c == 'a') player1->add();
+//         if (c == 'L') player1->left();
+//         if (c == 'R') player1->right();
+//         if (c == 'b') player1->blind();
+//         if (c == 'f') player1->force('O');
+//         if (c == 'J') player1->replace_block('J');
+//         if (c == 'p') print_players();
+//         if (c == 'c') player1->clear_effects();
+//         if (c == 'q') break;
+//     }
+
     // print_players();
     // player1->add();
     // player1->right();
@@ -65,13 +83,26 @@ Game::Game(string sequence1, string sequence2, bool TextOnly) {
 
     // print_players();
     
-    // // On design document, write "fields are the same, so no need to overload copy assignment operator"
     // player2 = make_shared<Level4>(*player2);
     // player2->add();
     // player2->drop();
     // player2 = make_shared<Level0>(*player2);
     // player2->add();
     // print_players();
+    // On design document, write "fields are the same, so no need to overload copy assignment operator"
+//     player2 = make_shared<Level4>(*player2);
+//     player2->add();
+//     player2->drop();
+//     player2 = make_shared<Level0>(*player2);
+//     player2->add();
+//     player2->force('O');
+//     player2->add();
+//     player2->drop();
+//     player2->add();
+//     player2->drop();
+//     player2->add();
+//     player2->drop();
+//     print_players();
 
 }
 
@@ -273,7 +304,7 @@ int num_digits(int n) {
 }
 
 void Game::print_players() {
-    string space = "        ";
+    string space = "        "; //8 spaces
     cout << "Level: " << player1->get_level() << space+"   " << "Level: " << player2->get_level() << endl;
     cout << "Score: " << player1->get_score() << space;
     
@@ -289,4 +320,35 @@ void Game::print_players() {
         cout << endl;
     }
     cout << "-----------" << space << "-----------" << endl;
+  
+    vector<pair<int,int>> p1_next_coords = player1->get_next_coords();
+    vector<pair<int,int>> p2_next_coords = player2->get_next_coords();
+    char c1 = player1->get_next_block_type();
+    char c2 = player2->get_next_block_type();
+    char nexts[4][30];
+
+    // cout << "got here!" << endl;
+
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 30; ++j) {
+            nexts[i][j] = ' ';
+        }
+    }
+
+    for (auto p : p1_next_coords) {
+        nexts[p.first][p.second+3] = c1;
+    }
+
+    for (auto p : p2_next_coords) {
+        nexts[p.first][p.second+22] = c2;
+    }
+
+    cout << "Next:" << "      "+space << "Next:" << endl;
+
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 30; ++j) {
+            cout << nexts[i][j];
+        }
+        cout << endl;
+    }
 }

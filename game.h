@@ -20,6 +20,7 @@ class Game {
     shared_ptr<Player> currPlayer = player1;
 
     vector<Player> levels;
+    shared_ptr<GraphicsDisplay> display = nullptr;
 
     void print_players();
 
@@ -47,6 +48,13 @@ class Game {
         // void restart();
         Game(string sequence1, string sequence2, bool TextOnly);
         ~Game();
+
+        //Accessors for Graphics Display
+        int p1_level();
+        int p2_level();
+        int p1_score();
+        int p2_score();
+        
 };
 
 #endif

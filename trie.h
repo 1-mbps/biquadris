@@ -9,7 +9,7 @@ class Trie {
     
     class TrieNode {
         friend class Trie;
-        shared_ptr<TrieNode> children[26];
+        shared_ptr<TrieNode> children[26]; //only lowercase letters
         bool is_terminal = true;
         bool is_word = false;
         int num_subtrees = 1;

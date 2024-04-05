@@ -1,4 +1,5 @@
 #include "trie.h"
+#include <iostream>
 
 using namespace std;
 
@@ -31,14 +32,18 @@ void Trie::TrieNode::insert(string key, size_t start) {
 }
 
 string Trie::TrieNode::end_of_branch() {
+    if (num_subtrees > 1) return "NOT FOUND";
     if (is_terminal) return word;
     return children[successor_index]->end_of_branch();
 }
 
 string Trie::TrieNode::return_closest_match(string key, size_t start) {
-    if ((is_word && word == key) || (start == key.length()-1 && num_subtrees == 1 && children[key[start]-'a'] != nullptr)) return children[key[start]-'a']->end_of_branch();
-    if (children[key[start]-'a'] == nullptr || start == key.length()-1) return "NOT FOUND";
-    return children[key[start]-'a']->return_closest_match(key, start+1);
+    if (start != key.length()) {
+        if (children[key[start]-'a'] == nullptr) return "NOT FOUND";
+        return children[key[start]-'a']->return_closest_match(key, start+1);
+    } else {
+        return end_of_branch();
+    }
 }
 
 Trie::Trie() {}

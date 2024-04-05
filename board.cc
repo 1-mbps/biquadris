@@ -13,10 +13,11 @@ Board::~Board() {
 void Board::add(shared_ptr<Block> b) {
     blocks.emplace_back(b);
     ++num_blocks;
+    char c = b->get_block_type();
     for (auto p : b->get_coords(0)) {
-        grid[p.first+b->get_origin_r()][p.second+b->get_origin_c()] = b->get_block_type();
+        grid[p.first+b->get_origin_r()][p.second+b->get_origin_c()] = c;
+        if (display != nullptr) display->fill(p.first+b->get_origin_r(), p.second+b->get_origin_c(), c, player_num);
     }
-    // b.attach(graphicsdisplay); add when implemented
 }
 
 pair<int,int> Board::drop() {
@@ -25,7 +26,6 @@ pair<int,int> Board::drop() {
         can_go_down = down();
     }
     int origin_r = blocks[num_blocks-1]->get_origin_r();
-    // int origin_c = blocks[num_blocks-1]->get_origin_c();
     vector<pair<int,int>> coords = blocks[num_blocks-1]->get_coords(0);
     int min_r = 0; int max_r = 0;
 
@@ -55,6 +55,7 @@ void Board::recalibrate_grid(int rows_cleared) {
     for (int i = 0; i < r; ++i) {
         for (int j = 0; j < c; ++j) {
             grid[i][j] = ' ';
+            if (display != nullptr) display->clear(i,j,player_num);
         }
     }
 
@@ -71,8 +72,10 @@ void Board::recalibrate_grid(int rows_cleared) {
 
         for (auto p : coords) {
             grid[p.first+origin_r][p.second+origin_c] = c;
+            if (display != nullptr) display->fill(p.first+origin_r,p.second+origin_c,c,player_num);
         }
     }
+
 }
 
 // <--- Block movement --->
@@ -151,6 +154,7 @@ bool Board::update_grid(int inc_rotation_state, int inc_r, int inc_c) {
     //Clear the old coordinates - O(n)
     for (auto p : old_coords) {
         grid[p.first+origin_r][p.second+origin_c] = ' ';
+        if (display != nullptr) display->clear(p.first+origin_r, p.second+origin_c, player_num);
     }
 
     bool valid = true;
@@ -165,18 +169,25 @@ bool Board::update_grid(int inc_rotation_state, int inc_r, int inc_c) {
     if (valid) {
         // mark the new coordinates - O(n)
         for (auto p : new_coords) {
-            grid[p.first+origin_r+inc_r][p.second+origin_c+inc_c] = c;
+            int i = p.first+origin_r+inc_r;
+            int j = p.second+origin_c+inc_c;
+            grid[i][j] = c;
+            if (display != nullptr) display->fill(i,j,c,player_num);
         }
     } else {
         // restore the old coordinates - O(n)
         for (auto p : old_coords) {
-            grid[p.first+origin_r][p.second+origin_c] = c;
+            int i = p.first+origin_r;
+            int j = p.second+origin_c;
+            grid[i][j] = c;
+            if (display != nullptr) display->fill(i,j,c,player_num);
         }
         return false;
     }
 
     //Total running time: O(3n) = O(n)
 
+    // if (display != nullptr) display->notify(grid, player_num);
     return true;
 }
 
@@ -201,4 +212,59 @@ void Board::print_line(int line) {
     for (int j = 0; j < 11; ++j) {
         cout << grid[line][j];
     }
+}
+
+
+void Board::add_window(shared_ptr<GraphicsDisplay> window) {
+    display = window;
+}
+
+void Board::set_player_num(int n) {
+    player_num = n;
+}
+
+void Board::update_score(int s) {
+    if (display != nullptr) display->update_score(s, player_num);
+}
+
+void Board::update_level(int new_level) {
+    level = new_level;
+}
+
+int Board::get_level() const {
+    return level;
+}
+
+bool Board::is_board() const { return true; }
+
+shared_ptr<Board> Board::get_parent() { return nullptr; }
+
+void Board::blind() {
+    if (display != nullptr) display->blind();
+}
+
+void Board::unblind() {
+    if (display != nullptr) display->unblind();
+}
+
+void Board::display_next(shared_ptr<Block> next) {
+    if (display != nullptr) display->display_next(next->get_coords(0), next->get_block_type(), player_num);
+}
+
+void Board::pop_last_block() {
+    if (num_blocks > 0) {
+        int origin_r = blocks[num_blocks-1]->get_origin_r();
+        int origin_c = blocks[num_blocks-1]->get_origin_c();
+        for (auto p : blocks[num_blocks-1]->get_coords(0)) {
+            grid[p.first+origin_r][p.second+origin_c] = ' ';
+            if (display != nullptr) display->clear(p.first+origin_r, p.second+origin_c, player_num);
+        }
+        blocks.pop_back();
+        --num_blocks;
+    }
+}
+
+void Board::replace_block(shared_ptr<Block> b) {
+    pop_last_block();
+    add(b);
 }
