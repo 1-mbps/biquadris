@@ -22,6 +22,7 @@ void Player::drop() {
     int rows_cleared = drop_values.first;
     int points_gained = drop_values.second;
     score += pow((level+rows_cleared), 2) + points_gained;
+    board->update_score(score);
     add_extra(rows_cleared); //template method
     // score += this number
 }

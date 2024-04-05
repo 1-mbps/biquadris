@@ -75,7 +75,7 @@ void Board::recalibrate_grid(int rows_cleared) {
             if (display != nullptr) display->fill(p.first+origin_r,p.second+origin_c,c,player_num);
         }
     }
-    // if (display != nullptr) display->notify(grid, player_num);
+
 }
 
 // <--- Block movement --->
@@ -224,10 +224,6 @@ void Board::set_player_num(int n) {
     player_num = n;
 }
 
-// void Board::attach(Observer *o) {
-//     observers.emplace_back();
-// }
-
-// void Board::notifyObservers() {
-//     for (auto ob : observers) ob->notify();
-// }
+void Board::update_score(int s) {
+    display->update_score(s);
+}

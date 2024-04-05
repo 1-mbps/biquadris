@@ -65,6 +65,8 @@ class Board {
 
         void add_window(shared_ptr<GraphicsDisplay> window);
         void set_player_num(int n);
+
+        void update_score(int s);
 };
 
 #endif
