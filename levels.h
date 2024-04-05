@@ -1,8 +1,12 @@
 #ifndef __LEVELS_H__
 #define __LEVELS_H__
 #include "player.h"
+#include <vector>
 
 class Level0: public Player {
+    vector<char> chars;
+    size_t char_length = 0;
+    size_t char_num = 0;
     public:
         Level0();
         Level0(const Player &p);

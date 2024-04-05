@@ -1,3 +1,5 @@
+7
+7
 Level: 0           Level: 0
 Score: 0           Score: 0
 -----------        -----------
@@ -21,35 +23,8 @@ IIII               IIII
                               
 -----------        -----------
 Next:              Next:
-   IIII               IIII    
-                              
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-                   IIII       
-                              
-OO                            
-OO                            
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
------------        -----------
-Next:              Next:
-   IIII               IIII    
-                              
+  J                  J        
+  JJJ                JJJ      
                               
                               
 Level: 0           Level: 0
@@ -58,7 +33,8 @@ Score: 0           Score: 0
                               
                               
                               
-                   IIII       
+                   JIII       
+                   JJJ        
                               
                               
                               
@@ -68,42 +44,14 @@ Score: 0           Score: 0
                               
                               
                               
-                              
-                              
-                              
-OO                            
-OO                            
------------        -----------
-Next:              Next:
-   IIII               IIII    
-                              
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
                               
                               
                               
 IIII                          
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-OO                            
-OO                 IIII       
 -----------        -----------
 Next:              Next:
-   IIII               IIII    
-                              
+  J                    L      
+  JJJ                LLL      
                               
                               
 Level: 0           Level: 0
@@ -112,7 +60,8 @@ Score: 0           Score: 0
                               
                               
                               
-                   IIII       
+J                   III       
+JJJ                           
                               
                               
                               
@@ -123,391 +72,12 @@ Score: 0           Score: 0
                               
                               
                               
-TTT                           
- T                            
-OO                            
-OO                 IIII       
+                              
+                   J          
+IIII               JJJ        
 -----------        -----------
 Next:              Next:
-   IIII               IIII    
-                              
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-                       IIII   
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-TTT                           
- T                            
-OO                            
-OO                 IIII       
------------        -----------
-Next:              Next:
-   IIII               IIII    
-                              
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-IIII                          
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-TTT                           
- T                            
-OO                            
-OO                 IIIIIIII   
------------        -----------
-Next:              Next:
-   IIII               IIII    
-                              
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-       L                      
-     LLL                      
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-TTT                           
- T                            
-OO                            
-OO                 IIIIIIII   
------------        -----------
-Next:              Next:
-   IIII               IIII    
-                              
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-                   IIII       
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-TTT                           
- T                            
-OO     L                      
-OO   LLL           IIIIIIII   
------------        -----------
-Next:              Next:
-   IIII               IIII    
-                              
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-                            L 
-                          LLL 
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-TTT                           
- T                            
-OO     L                      
-OO   LLL           IIIIIIII   
------------        -----------
-Next:              Next:
-   IIII               IIII    
-                              
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-                             L
-                           LLL
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-TTT                           
- T                            
-OO     L                      
-OO   LLL           IIIIIIII   
------------        -----------
-Next:              Next:
-   IIII               IIII    
-                              
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 3
------------        -----------
-                              
-                              
-                              
-IIII                          
-                   IIII       
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-TTT                           
- T                            
-OO     L                      
-OO   LLL                     L
------------        -----------
-Next:              Next:
-   IIII               IIII    
-                              
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-IIII               IIII       
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-TTT                TTT        
- T                  T         
-OO     L           OO     L   
-OO   LLL           OO   LLL   
------------        -----------
-Next:              Next:
-   IIII               IIII    
-                              
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-IIII               IIII       
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-IIII               IIII       
-TTT                TTT        
- T                  T         
-OO     L           OO     L   
-OO   LLL           OO   LLL   
------------        -----------
-Next:              Next:
-   IIII               IIII    
-                              
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-IIII               IIII       
-IIII               IIII       
-TTT                TTT        
- T                  T         
-OO     L           OO     L   
-OO   LLL           OO   LLL   
------------        -----------
-Next:              Next:
-   IIII              TTT      
-                      T       
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-IIII               IIII       
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-                              
-IIII               IIII       
-IIII               IIII       
-TTT                TTT        
- T                  T         
-OO     L           OO     L   
-OO   LLL           OO   LLL   
------------        -----------
-Next:              Next:
-   IIII              TTT      
-                      T       
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-TTT                TTT        
- T                  T         
-                              
-                              
-                              
-                              
-                              
-                              
-IIII               IIII       
-IIII               IIII       
-IIII               IIII       
-TTT                TTT        
- T                  T         
-OO     L           OO     L   
-OO   LLL           OO   LLL   
------------        -----------
-Next:              Next:
-   IIII              TTT      
-                      T       
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-IIII               IIII       
-                              
-                              
-                              
-                              
-                              
-TTT                TTT        
- T                  T         
-IIII               IIII       
-IIII               IIII       
-IIII               IIII       
-TTT                TTT        
- T                  T         
-OO     L           OO     L   
-OO   LLL           OO   LLL   
------------        -----------
-Next:              Next:
-   IIII              TTT      
-                      T       
-                              
-                              
-Level: 0           Level: 0
-Score: 0           Score: 0
------------        -----------
-                              
-                              
-                              
-TTT                TTT        
- T                  T         
-                              
-                              
-                              
-IIII               IIII       
-TTT                TTT        
- T                  T         
-IIII               IIII       
-IIII               IIII       
-IIII               IIII       
-TTT                TTT        
- T                  T         
-OO     L           OO     L   
-OO   LLL           OO   LLL   
------------        -----------
-Next:              Next:
-   IIII              TTT      
-                      T       
+    L                  L      
+  LLL                LLL      
                               
                               

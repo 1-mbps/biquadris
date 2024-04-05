@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Game::Game(string sequence1, string sequence2, bool TextOnly) {
+Game::Game(string sequence1, string sequence2, int start_level, bool TextOnly) {
     string cmd_list[] = {"left", "right", "down", "clockwise", "counterclockwise", 
     "drop", "levelup", "leveldown", "norandom", "random", "sequence", "restart"};
 
@@ -28,21 +28,6 @@ Game::Game(string sequence1, string sequence2, bool TextOnly) {
     player1->add();
     player2->add();
     print_players();
-
-//     char c;
-//     while (cin >> c) {
-//         if (c == 'r') player1->rotate(true);
-//         if (c == 'd') player1->drop();
-//         if (c == 'a') player1->add();
-//         if (c == 'L') player1->left();
-//         if (c == 'R') player1->right();
-//         if (c == 'b') player1->blind();
-//         if (c == 'f') player1->force('O');
-//         if (c == 'J') player1->replace_block('J');
-//         if (c == 'p') print_players();
-//         if (c == 'c') player1->clear_effects();
-//         if (c == 'q') break;
-//     }
 
 }
 
@@ -148,32 +133,36 @@ void Game::dropBlock(int multiplier) {
 void Game::levelUpByOne() {
     int currLevel = currPlayer->get_level();
     if (currLevel == 0) {
-        currPlayer = make_shared<Level1>(*currPlayer);
         if (currPlayer == player1) {
-            player1 = make_shared<Level1>(*currPlayer);
+            player1 = make_shared<Level1>(*player1);
+            currPlayer = player1;
         } else {
-            player2 = make_shared<Level1>(*currPlayer);
+            player2 = make_shared<Level1>(*player2);
+            currPlayer = player2;
         }
     } else if (currLevel == 1) {
-        currPlayer = make_shared<Level2>(*currPlayer);
         if (currPlayer == player1) {
-            player1 = make_shared<Level2>(*currPlayer);
+            player1 = make_shared<Level2>(*player1);
+            currPlayer = player1;
         } else {
-            player2 = make_shared<Level2>(*currPlayer);
+            player2 = make_shared<Level2>(*player2);
+            currPlayer = player2;
         }
     } else if (currLevel == 2) {
-        currPlayer = make_shared<Level3>(*currPlayer);
         if (currPlayer == player1) {
-            player1 = make_shared<Level3>(*currPlayer);
+            player1 = make_shared<Level3>(*player1);
+            currPlayer = player1;
         } else {
-            player2 = make_shared<Level3>(*currPlayer);
+            player2 = make_shared<Level3>(*player2);
+            currPlayer = player2;
         }
     } else if (currLevel == 3) {
-        currPlayer = make_shared<Level4>(*currPlayer);
         if (currPlayer == player1) {
-            player1 = make_shared<Level4>(*currPlayer);
+            player1 = make_shared<Level4>(*player1);
+            currPlayer = player1;
         } else {
-            player2 = make_shared<Level4>(*currPlayer);
+            player2 = make_shared<Level4>(*player2);
+            currPlayer = player2;
         }
     }
 }

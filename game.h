@@ -47,7 +47,7 @@ class Game {
         // void executeSequence(const string& filename);
         // void switchBlock(const char& blockType);
         // void restart();
-        Game(string sequence1, string sequence2, bool TextOnly);
+        Game(string sequence1, string sequence2, int startlevel, bool TextOnly);
         ~Game();
 
         void special_action();

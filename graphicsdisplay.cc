@@ -42,7 +42,7 @@ void GraphicsDisplay::clear(int i, int j, int player_num) {
 
 void GraphicsDisplay::fill(int i, int j, char c, int player_num) {
     int add_width = 0;
-    if (player_num == 2) add_width = BOARD_WIDTH+DIVIDER_WIDTH;
+    if (player_num == 2) add_width = ADD_WIDTH;
     // cout << "add width: " << add_width << endl;
     int color = color_map[c];
     if (is_blind && 2 <= i && i <= 11 && 2 <= j && j <= 8) {

@@ -141,9 +141,3 @@ int Block::clear_row(int i) {
     if (chars_left == 0) return pow(level_placed+1, 2);
     return 0;
 }
-
-// void Block::print() {
-//     for (auto p : xy_coords) {
-//         std::cout << '(' << p.first << ", " << p.second << ')' << std::endl;
-//     }
-// }

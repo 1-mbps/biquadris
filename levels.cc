@@ -1,9 +1,22 @@
 #include "levels.h"
+#include <fstream>
+
+using namespace std;
 
 // <----- Level0 ----->
 
 Level0::Level0() {
     board = make_shared<BasicBoard>();
+    string seq;
+    if (player_num == 1) seq = "sequence1.txt";
+    if (player_num == 2) seq = "sequence2.txt";
+    fstream in{seq};
+    char c;
+    while (in >> c) {
+        chars.emplace_back(c);
+    }
+    char_length = chars.size();
+    cout << char_length << endl;
     next = block_selector();
 }
 
@@ -12,7 +25,9 @@ Level0::Level0(const Player &p): Player{p} { update_level(0); }
 Level0::~Level0() {}
 
 shared_ptr<Block> Level0::block_selector() {
-    shared_ptr<Block> b(new Block('I', 0)); //for now - change later
+    char c = chars[char_num % char_length];
+    ++char_num;
+    shared_ptr<Block> b(new Block(c, 0)); //for now - change later
     return b;
 }
 
@@ -26,7 +41,8 @@ Level1::Level1(const Player &p): Player{p} { update_level(1); }
 Level1::~Level1() {}
 
 shared_ptr<Block> Level1::block_selector() {
-    shared_ptr<Block> b(new Block('T', 1)); //for now - change later
+    char block_type = selections[rand() % 12];
+    shared_ptr<Block> b(new Block(block_type, 1)); //for now - change later
     return b;
 }
 
@@ -96,4 +112,3 @@ void Level4::move_modifier() {
     down();
 }
 
-// <--- --->

@@ -7,7 +7,7 @@ class Player {
     shared_ptr<Board> board = nullptr;
     int num_effects = 0;
     protected:
-        int player_num;
+        int player_num = 1;
         int level = 0;
         int score = 0;
         shared_ptr<Block> next = nullptr;
