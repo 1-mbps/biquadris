@@ -24,6 +24,7 @@ Game::Game() {
         if (c == 'R') player1->right();
         if (c == 'b') player1->blind();
         if (c == 'f') player1->force('O');
+        if (c == 'J') player1->replace_block('J');
         if (c == 'p') print_players();
         if (c == 'c') player1->clear_effects();
         if (c == 'q') break;

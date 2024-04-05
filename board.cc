@@ -250,3 +250,17 @@ void Board::unblind() {
 void Board::display_next(shared_ptr<Block> next) {
     if (display != nullptr) display->display_next(next->get_coords(0), next->get_block_type(), player_num);
 }
+
+void Board::replace_block(shared_ptr<Block> b) {
+    if (num_blocks > 0) {
+        int origin_r = blocks[num_blocks-1]->get_origin_r();
+        int origin_c = blocks[num_blocks-1]->get_origin_c();
+        for (auto p : blocks[num_blocks-1]->get_coords(0)) {
+            grid[p.first+origin_r][p.second+origin_c] = ' ';
+            if (display != nullptr) display->clear(p.first+origin_r, p.second+origin_c, player_num);
+        }
+        blocks.pop_back();
+        --num_blocks;
+    }
+    add(b);
+}

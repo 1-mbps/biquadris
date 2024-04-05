@@ -82,6 +82,7 @@ class Board {
         virtual void unblind();
 
         void display_next(shared_ptr<Block> next);
+        void replace_block(shared_ptr<Block> b);
 
 };
 

@@ -36,6 +36,8 @@ class Player {
 
         void update_level(int new_level);
 
+        void replace_block(char c);
+
         // Accessors:
 
         int get_level() const;

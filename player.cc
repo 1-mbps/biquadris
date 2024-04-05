@@ -36,7 +36,7 @@ int Player::drop() {
     board->update_score(score);
     board->unblind();
     add_extra(rows_cleared); //template method
-    return rows_cleared;
+    return rows_cleared; // if > 2, prompt special actions
 }
 
 void Player::blind() {
@@ -97,6 +97,11 @@ void Player::move_modifier() {}
 
 void Player::update_level(int new_level) {
     board->update_level(new_level);
+}
+
+void Player::replace_block(char c) {
+    shared_ptr<Block> new_block = make_shared<Block>(c, level);
+    board->replace_block(new_block);
 }
 
 // Accessors:
